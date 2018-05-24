@@ -3,6 +3,7 @@ package models;
 import models.Stock.Stock;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Set;
 
 @Entity
@@ -14,7 +15,7 @@ public class Customer {
     private String address;
     private int age;
     private Basket basket;
-    private Set<Stock> purchases;
+    private ArrayList<Stock> purchases;
 
     public Customer() {
     }
@@ -24,6 +25,7 @@ public class Customer {
         this.address = address;
         this.age = age;
         this.basket = basket;
+        this.purchases = new ArrayList<>();
     }
 
     @Id
@@ -72,11 +74,15 @@ public class Customer {
         this.basket = basket;
     }
 
-    public Set<Stock> getPurchases() {
+    public ArrayList<Stock> getPurchases() {
         return purchases;
     }
 
-    public void setPurchases(Set<Stock> purchases) {
+    public void setPurchases(ArrayList<Stock> purchases) {
         this.purchases = purchases;
+    }
+
+    public void addPurchase(Stock stock){
+        this.purchases.add(stock);
     }
 }
