@@ -5,8 +5,8 @@ public class ShopTest {
 
     Shop shop;
 
-    @Before
-    public void setUp() {
-        shop = new Shop("Dragon")
-    }
+//    @Before
+//    public void setUp() {
+//        shop = new Shop("Dragon")
+//    }
 }
