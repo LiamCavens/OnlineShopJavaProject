@@ -1,4 +1,4 @@
-package models;
+package models.Stock;
 
 public class Stock {
 }
