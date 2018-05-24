@@ -17,4 +17,9 @@ public class ShopTest {
     public void shopHasName() {
         assertEquals("Dragons FG4H", shop.getShopName());
     }
+
+    @Test
+    public void shopHasFunds() {
+        assertEquals(1000.0, shop.getTill());
+    }
 }
