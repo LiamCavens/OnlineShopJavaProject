@@ -12,7 +12,7 @@ public class Shop {
     private int id;
     private String shopName;
     private double till;
-    private Set<Stock> shopStock;
+    private Set<Stock> inventory;
 
     public Shop() {
     }
@@ -52,16 +52,16 @@ public class Shop {
     }
 
     @OneToMany(mappedBy = "shop")
-    public Set<Stock> getShopStock() {
-        return shopStock;
+    public Set<Stock> getInventory() {
+        return inventory;
     }
 
-    public void setShopStock(Set<Stock> shopStock) {
-        this.shopStock = shopStock;
+    public void setInventory(Set<Stock> inventory) {
+        this.inventory = inventory;
     }
 
-    public void addStockToShop(Stock item){
-        this.shopStock.add(item);
-        this.till -= item.getBoughtInPrice();
+    public void addStockToInventory(Stock stock){
+        this.inventory.add(stock);
+        this.till -= stock.getBoughtInPrice();
     }
 }
