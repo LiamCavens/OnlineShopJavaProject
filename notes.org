@@ -24,6 +24,7 @@ Make sure you style your shop appropriately with CSS.
 *** Search for product by partial title.
 *** Display products filtered by catagory.
 
+
 * Plan
 
 ** Classes
@@ -52,4 +53,45 @@ Make sure you style your shop appropriately with CSS.
 *** Clothing extends Stock
 **** size
 
+* RESTFUL Routes
 
+Users
+|-------------------+-----------+---------|
+| URL               | HTTP Verb | Action  |
+|-------------------+-----------+---------|
+| /users            | GET       | index   |
+| /users/new        | GET       | new     |
+| /users            | POST      | create  |
+| /users/:id        | GET       | show    |
+| /users/:id/edit   | GET       | edit    |
+| /users/:id        | POST      | update  |
+| /users/:id/delete | POST      | destroy |
+|-------------------+-----------+---------|
+
+Stock
+|-------------------+-----------+---------|
+| URL               | HTTP Verb | Action  |
+|-------------------+-----------+---------|
+| /stock            | GET       | index   |
+| /stock/new        | GET       | new     |
+| /stock            | POST      | create  |
+| /stock/:id        | GET       | show    |
+| /stock/:id/edit   | GET       | edit    |
+| /stock/:id        | POST      | update  |
+| /stock/:id/delete | POST      | destroy |
+|-------------------+-----------+---------|
+
+Basket
+|--------------------------+-----------+---------|
+| URL                      | HTTP Verb | Action  |
+|--------------------------+-----------+---------|
+| /users/:id/basket        | GET       | index   |
+|                          | GET       | new     |
+|                          | POST      | create  |
+|                          | GET       | show    |
+| /users/:id/basket/edit   | GET       | edit    |
+| /users/:id/basket        |           | update  |
+| /users/:id/basket/delete | DELETE    | destroy |
+|--------------------------+-----------+---------|
+
+* 

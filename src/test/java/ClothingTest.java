@@ -18,4 +18,14 @@ public class ClothingTest {
     public void hasName() {
         assertEquals("Leather Kilt", clothing1.getName());
     }
+
+    @Test
+    public void hasBoughtInPrice() {
+        assertEquals(250, clothing1.getBoughtInPrice(), 0.1);
+    }
+
+    @Test
+    public void canCalculateMarkupPrice() {
+        assertEquals(100.00, clothing1.calculateMarkUp(), 0.1);
+    }
 }
