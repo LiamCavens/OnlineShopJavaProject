@@ -3,6 +3,7 @@ package models;
 import models.Stock.Stock;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Set;
 
 @Entity
@@ -12,7 +13,7 @@ public class Shop {
     private int id;
     private String shopName;
     private double till;
-    private Set<Stock> inventory;
+    private ArrayList<Stock> inventory;
 
     public Shop() {
     }
@@ -20,6 +21,7 @@ public class Shop {
     public Shop(String shopName, double till) {
         this.shopName = shopName;
         this.till = till;
+        this.inventory = new ArrayList<>();
     }
 
     @Id
@@ -52,16 +54,21 @@ public class Shop {
     }
 
     @OneToMany(mappedBy = "shop")
-    public Set<Stock> getInventory() {
+    public ArrayList<Stock> getInventory() {
         return inventory;
     }
 
-    public void setInventory(Set<Stock> inventory) {
+    public void setInventory(ArrayList<Stock> inventory) {
         this.inventory = inventory;
     }
 
     public void addStockToInventory(Stock stock){
         this.inventory.add(stock);
-        //this.till -= stock.getBoughtInPrice();
+        this.till -= stock.getBoughtInPrice();
+    }
+
+    public void sellStock(Stock stock){
+        this.inventory.remove(stock);
+        this.till += stock.getSellPrice();
     }
 }
