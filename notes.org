@@ -94,4 +94,29 @@ Basket
 | /users/:id/basket/delete | DELETE    | destroy |
 |--------------------------+-----------+---------|
 
-* 
+* DB Planning
+
+|--------+------------------------+-------------------------------|
+| Users: | Basket (1-1) basket_id | purchases (1-Many) Set<Stock> |
+| Stock: |                        |                               |
+|--------+------------------------+-------------------------------|
+
+
+
+* User Personaes
+
+|---------+-----+------------------------+--------------------------------------------+-----------------------------------------------|
+| Name    | Age | Demographic/Occupation | Behaviours                                 | Needs                                         |
+|---------+-----+------------------------+--------------------------------------------+-----------------------------------------------|
+| William |  24 | Bank Staff             | Workaholic.                                | Affordable games                              |
+|         |     | Low income             | Plays a lot of video games on the weekend  | Easily searched website for                   |
+|         |     | Lives with parents     | Introverted among new people               | niche games and collectables                  |
+|         |     | Single                 | Collects boxed games                       | FEATURED items                                |
+|---------+-----+------------------------+--------------------------------------------+-----------------------------------------------|
+| Amy     |  30 | Drama teacher          | Outgoing. Plays a lot of retro games. Buys | Clear navigation.                             |
+|         |     | Lives with partner     | remastered classics.                       | Images of items.                              |
+|         |     | Modest income          | Loves gamer/nerd t-shirts and memorabilia. | Clear display of items in basket              |
+|---------+-----+------------------------+--------------------------------------------+-----------------------------------------------|
+| Liam    |  15 | Student                | Lazy                                       | Clearly display discounts and multibuy offers |
+|         |     | No income              | Wants newest AAA titles and merch          |                                               |
+|---------+-----+------------------------+--------------------------------------------+-----------------------------------------------|
