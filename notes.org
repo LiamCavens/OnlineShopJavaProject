@@ -41,7 +41,7 @@ Make sure you style your shop appropriately with CSS.
 **** availability (boolean)
 **** description
 
-*** Casket
+*** Basket
 **** ArrayList<Stock> itemsInBasket
 **** currentTotalPrice
 
@@ -95,3 +95,18 @@ Basket
 |--------------------------+-----------+---------|
 
 * 
+
+3 items
+100 total
+95 after discount
+10, 10, 80
+
+4 items
+100 total
+90 after discount
+10, 5*2, 80
+
+5 items
+100 total
+85 after discount
+10*8, 5
