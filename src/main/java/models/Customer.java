@@ -2,8 +2,7 @@ package models;
 
 import models.Stock.Stock;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -27,6 +26,9 @@ public class Customer {
         this.basket = basket;
     }
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     public int getId() {
         return id;
     }
@@ -35,6 +37,7 @@ public class Customer {
         this.id = id;
     }
 
+    @Column(name = "username")
     public String getUsername() {
         return username;
     }
@@ -43,6 +46,7 @@ public class Customer {
         this.username = username;
     }
 
+    @Column(name = "address")
     public String getAddress() {
         return address;
     }
@@ -51,6 +55,7 @@ public class Customer {
         this.address = address;
     }
 
+    @Column(name = "age")
     public int getAge() {
         return age;
     }
