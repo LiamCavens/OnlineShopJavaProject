@@ -1,0 +1,97 @@
+* Online Shop Brief
+
+** Model an online shop.
+You are tasked with creating an e-commerce platform. Your online store may sell anything you wish.
+It could be a niche, boutique store or a more general 'amazon' type. 
+Customers will log in, add items to their basket and purchase them.
+
+** Your shop should include;
+*** A stock class with quantity, price and availability.
+*** A basket class to represent the customer/user's items for purchase.
+*** A user class with login details and purchase history.
+
+** MVP
+Your shop should be able to;
+*** Add, update, display and remove products.
+*** Allow users to add and remove items from their basket.
+*** Baskets should keep a running total.
+*** Sell products.
+*** Apply discounts (e.g. 2 for 1, discount on bulk order).
+
+Make sure you style your shop appropriately with CSS.
+
+** Extensions.
+*** Search for product by partial title.
+*** Display products filtered by catagory.
+
+
+* Plan
+
+** Classes
+
+*** Shop
+**** name
+**** ArrayList<Stock>
+**** Methods:
+*** 
+*** Stock (abstract)
+**** quantity
+**** sellPrice
+**** boughtInPrice
+**** availability (boolean)
+**** description
+
+*** Casket
+**** ArrayList<Stock> itemsInBasket
+**** currentTotalPrice
+
+*** Customer
+**** username
+**** password (optional)
+**** Set<Stock> purchases
+
+*** Clothing extends Stock
+**** size
+
+* RESTFUL Routes
+
+Users
+|-------------------+-----------+---------|
+| URL               | HTTP Verb | Action  |
+|-------------------+-----------+---------|
+| /users            | GET       | index   |
+| /users/new        | GET       | new     |
+| /users            | POST      | create  |
+| /users/:id        | GET       | show    |
+| /users/:id/edit   | GET       | edit    |
+| /users/:id        | POST      | update  |
+| /users/:id/delete | POST      | destroy |
+|-------------------+-----------+---------|
+
+Stock
+|-------------------+-----------+---------|
+| URL               | HTTP Verb | Action  |
+|-------------------+-----------+---------|
+| /stock            | GET       | index   |
+| /stock/new        | GET       | new     |
+| /stock            | POST      | create  |
+| /stock/:id        | GET       | show    |
+| /stock/:id/edit   | GET       | edit    |
+| /stock/:id        | POST      | update  |
+| /stock/:id/delete | POST      | destroy |
+|-------------------+-----------+---------|
+
+Basket
+|--------------------------+-----------+---------|
+| URL                      | HTTP Verb | Action  |
+|--------------------------+-----------+---------|
+| /users/:id/basket        | GET       | index   |
+|                          | GET       | new     |
+|                          | POST      | create  |
+|                          | GET       | show    |
+| /users/:id/basket/edit   | GET       | edit    |
+| /users/:id/basket        |           | update  |
+| /users/:id/basket/delete | DELETE    | destroy |
+|--------------------------+-----------+---------|
+
+* 
