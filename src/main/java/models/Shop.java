@@ -62,6 +62,6 @@ public class Shop {
 
     public void addStockToInventory(Stock stock){
         this.inventory.add(stock);
-        this.till -= stock.getBoughtInPrice();
+        //this.till -= stock.getBoughtInPrice();
     }
 }
