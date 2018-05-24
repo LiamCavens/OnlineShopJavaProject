@@ -1,5 +1,7 @@
 package models;
 
+import models.Stock.Stock;
+
 import javax.persistence.*;
 import java.util.Set;
 
