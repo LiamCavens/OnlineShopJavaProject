@@ -109,4 +109,4 @@ Basket
 5 items
 100 total
 85 after discount
-10*8, 5
+

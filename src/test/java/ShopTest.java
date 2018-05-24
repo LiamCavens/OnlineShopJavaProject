@@ -10,12 +10,12 @@ public class ShopTest {
 
     @Before
     public void setUp() {
-        shop = new Shop("Dragons FG4H", 1000);
+        shop = new Shop("Dragon Games", 1000);
     }
 
     @Test
     public void shopHasName() {
-        assertEquals("Dragons FG4H", shop.getShopName());
+        assertEquals("Dragon Games", shop.getShopName());
     }
 
     @Test
