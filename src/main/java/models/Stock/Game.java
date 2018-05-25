@@ -1,6 +1,7 @@
 package models.Stock;
 
 import behaviors.Sellable;
+import models.Customer;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -71,5 +72,14 @@ public class Game extends Stock {
 
     public void setPegiRating(int pegiRating) {
         this.pegiRating = pegiRating;
+    }
+
+
+    public boolean checkPegiRating(Customer customer1) {
+        boolean result = true;
+        if (customer1.getAge() < this.getPegiRating()){
+            result = false;
+        }
+        return result;
     }
 }
