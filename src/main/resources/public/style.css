@@ -1,0 +1,43 @@
+/*
+ Jet - #363635
+ Nickel - #6B6D76
+ Inchworm - #B0FE76
+ Pastel Green - #81E979
+ Isabelline - #F7F0F0
+*/
+
+body {
+    padding: 0%;
+    margin: 0%;
+    background-color: #F7F0F0;
+}
+
+.navbar {
+    background-color: #363635;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar a {
+    color: #81E979;
+    font-family: 'Bungee', cursive;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    margin: auto;
+}
+
+.navbar a:hover {
+    background-color: #F7F0F0;
+    color: #363635;
+    transition: all 1s cubic-bezier(.48,.01,.71,.69)
+}
+.navbar p {
+    color: #B0FE76;
+    font-size: 20px;
+    font-family: 'Press Start 2P', cursive;
+    padding: 0% 2%;
+    margin: auto;
+    float: left;
+}
