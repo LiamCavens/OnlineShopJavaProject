@@ -14,7 +14,7 @@ public class ShopTest {
     @Before
     public void setUp() {
         shop = new Shop("Dragon Games", 1000);
-        game = new Game("GTAV", "Gud game", 1, 5, 25, GameGenre.ACTION, "3456-BGDS-FCSA");
+        game = new Game("GTAV", "Gud game", 1, 5, 25, GameGenre.ACTION, "3456-BGDS-FCSA",  "https://static-cdn.jtvnw.net/ttv-boxart/Grand%20Theft%20Auto%20V.jpg", "https://www.youtube.com/watch?v=hvoD7ehZPcM");
     }
 
     @Test

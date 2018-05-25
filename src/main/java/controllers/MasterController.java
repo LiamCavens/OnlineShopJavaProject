@@ -1,7 +1,6 @@
 package controllers;
 
 import db.Seed;
-import models.Basket;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -24,7 +23,7 @@ public class MasterController {
         BasketController basketController = new BasketController();
         CustomerController customerController = new CustomerController();
         ShopController shopController = new ShopController();
-        StockController stockController = new StockController();
+        GameController gameController = new GameController();
 
         get("/", (Request req, Response res) -> {
             Map<String, Object> model = new HashMap<>();
