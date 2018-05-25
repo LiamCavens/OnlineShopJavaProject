@@ -83,7 +83,11 @@ public abstract class Stock implements Sellable {
         this.sellPrice = sellPrice;
     }
 
-    public boolean getAvailable() {
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public boolean checkAvailable() {
         if (getQuantity() >= 1){
            return true;
         } else
@@ -91,7 +95,7 @@ public abstract class Stock implements Sellable {
     }
 
     public void setAvailable(boolean available) {
-        this.available = getAvailable();
+        this.available = isAvailable();
     }
 
     public double calculateMarkUp(){

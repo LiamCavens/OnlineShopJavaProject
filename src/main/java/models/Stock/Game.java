@@ -1,6 +1,7 @@
 package models.Stock;
 
 import behaviors.Sellable;
+import models.Customer;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +15,7 @@ public class Game extends Stock {
     private String gameKey;
     private String gameImage;
     private String gameTrailer;
+    private int pegiRating;
 
     public Game(String name, String description, int quantity, double boughtInPrice, double sellPrice, GameGenre genre, String gameKey) {
         super(name, description, quantity, boughtInPrice, sellPrice);
@@ -21,6 +23,7 @@ public class Game extends Stock {
         this.gameKey = gameKey;
         this.gameImage = gameImage;
         this.gameTrailer = gameTrailer;
+        this.pegiRating = pegiRating;
     }
 
     public Game() {
@@ -60,5 +63,23 @@ public class Game extends Stock {
 
     public void setGenre(GameGenre genre) {
         this.genre = genre;
+    }
+
+    @Column(name="rating")
+    public int getPegiRating() {
+        return pegiRating;
+    }
+
+    public void setPegiRating(int pegiRating) {
+        this.pegiRating = pegiRating;
+    }
+
+
+    public boolean checkPegiRating(Customer customer1) {
+        boolean result = true;
+        if (customer1.getAge() < this.getPegiRating()){
+            result = false;
+        }
+        return result;
     }
 }
