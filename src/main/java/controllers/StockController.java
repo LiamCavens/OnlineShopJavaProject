@@ -1,6 +1,7 @@
 package controllers;
 
 import db.DBHelper;
+import models.Stock.Game;
 import models.Stock.Stock;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -19,10 +20,10 @@ public class StockController {
 
     private void setupEndpoints() {
 
-        get("/stock", (req, res) -> {
+        get("/games", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            List<Stock> stock = DBHelper.getAll(Stock.class);
-            model.put("stock", stock);
+            List<Game> games = DBHelper.getAll(Game.class);
+            model.put("games", games);
             model.put("template", "templates/stock/index.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
