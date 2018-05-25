@@ -94,7 +94,7 @@ Basket
 | /users/:id/basket/delete | DELETE    | destroy |
 |--------------------------+-----------+---------|
 
-* 
+*
 
 3 items
 100 total
@@ -142,4 +142,3 @@ Basket
 William opens webapp -> Home page loads -> Featured items appear under menu bar at top of page -> William sees new releases that interest him -> Goes to page and looks at description, decides he cannot justify the expense, but sees other similar products -> Views other product and decides to add it to basket -> running total of basket is updated (price and no. items) -> clicks on basket and is prompted to login -> logs in -> (any previous items associated with that user's basket is added to current basket) -> Checkout!
 
 Amy opens webapp -> clicks on category Clothing -> browses through complete list of stock with titles, prices, and images to find items she is interested in -> clicks on items and adds to basket -> returns to index -> sees she has added too much -> clicks on basket, logs in -> removes items she no longer wants ->  clicks on Checkout!
-
