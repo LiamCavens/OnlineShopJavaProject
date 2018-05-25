@@ -12,6 +12,13 @@ body {
     background-color: #F7F0F0;
 }
 
+h1 {
+    text-align: center;
+    font-family: 'Bungee', cursive;
+    color: #363635;
+    margin: 1% 0%;
+}
+
 .navbar {
     background-color: #363635;
     overflow: hidden;
@@ -37,7 +44,31 @@ body {
     color: #B0FE76;
     font-size: 20px;
     font-family: 'Press Start 2P', cursive;
-    padding: 0% 2%;
+    padding: 0% 1%;
     margin: auto;
     float: left;
+}
+
+.main-link {
+    padding: 0%;
+    margin: 0%;
+    font-family: 'Bungee', cursive;
+}
+
+.home-featured {
+    padding: 2% 0 0 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.feature {
+    text-align: center;
+    color: #81E979;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+.main-feature {
+    padding: auto:
+    margin: auto;
+    height: 200px;
+    width: 200px;
 }
