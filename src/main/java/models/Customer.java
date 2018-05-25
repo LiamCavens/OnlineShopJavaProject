@@ -65,6 +65,7 @@ public class Customer {
         this.age = age;
     }
 
+    @OneToOne(cascade = CascadeType.PERSIST)
     public Basket getBasket() {
         return basket;
     }
@@ -73,6 +74,7 @@ public class Customer {
         this.basket = basket;
     }
 
+    @Column(name = "purchases")
     public ArrayList<Stock> getPurchases() {
         return purchases;
     }

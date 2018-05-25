@@ -53,6 +53,7 @@ public class Shop {
         this.till = till;
     }
 
+    @OneToMany(mappedBy = "shop")
     public Set<Stock> getInventory() {
         return inventory;
     }
