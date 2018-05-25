@@ -1,9 +1,9 @@
 package models;
 
-import models.Stock.Stock;
+import models.stock.Stock;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -13,7 +13,7 @@ public class Shop {
     private int id;
     private String shopName;
     private double till;
-    private ArrayList<Stock> inventory;
+    private Set<Stock> inventory;
 
     public Shop() {
     }
@@ -21,7 +21,7 @@ public class Shop {
     public Shop(String shopName, double till) {
         this.shopName = shopName;
         this.till = till;
-        this.inventory = new ArrayList<>();
+        this.inventory = new HashSet<>();
     }
 
     @Id
@@ -53,12 +53,11 @@ public class Shop {
         this.till = till;
     }
 
-    @OneToMany(mappedBy = "shop")
-    public ArrayList<Stock> getInventory() {
+    public Set<Stock> getInventory() {
         return inventory;
     }
 
-    public void setInventory(ArrayList<Stock> inventory) {
+    public void setInventory(Set<Stock> inventory) {
         this.inventory = inventory;
     }
 

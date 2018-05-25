@@ -1,8 +1,7 @@
 package controllers;
 
 import db.DBHelper;
-import models.Stock.Game;
-import models.Stock.Stock;
+import models.stock.Game;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 

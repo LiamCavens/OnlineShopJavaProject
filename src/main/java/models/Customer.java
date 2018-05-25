@@ -1,10 +1,9 @@
 package models;
 
-import models.Stock.Stock;
+import models.stock.Stock;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Set;
 
 @Entity
 @Table(name = "customers")
