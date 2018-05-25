@@ -20,4 +20,12 @@ public class GameTest {
     public void hasKey() {
         assertEquals("12345", game1.getGameKey());
     }
+
+    @Test
+    public void hasPEGIRating() {
+        assertEquals(0, game2.getPegiRating());
+        game2.setPegiRating(12);
+        assertEquals(12, game2.getPegiRating());
+    }
+
 }
