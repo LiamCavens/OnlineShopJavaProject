@@ -72,3 +72,30 @@ h1 {
     height: 200px;
     width: 200px;
 }
+
+.product-container {
+    padding: auto;
+    margin: 0% 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.product-list-show-cover {
+    font-family: 'Bungee', cursive;
+    font-size: 15px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-align: center;
+    align-self: center;
+    height: 180px;
+    width: 130px;
+}
+
+.product-resize-for-list {
+    height: 100px;
+    width: 70px;
+}
+
+.product-text-link {
+    color: #81E979;
+}

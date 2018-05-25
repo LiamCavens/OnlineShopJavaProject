@@ -1,7 +1,6 @@
 package models.stock;
 
 import behaviors.Sellable;
-import models.Shop;
 
 import javax.persistence.*;
 
@@ -16,7 +15,6 @@ public abstract class Stock implements Sellable {
     private double boughtInPrice;
     private double sellPrice;
     private boolean available;
-    private Shop shop;
 
     public Stock(String name, String description, int quantity, double boughtInPrice, double sellPrice) {
         this.name = name;
@@ -24,7 +22,6 @@ public abstract class Stock implements Sellable {
         this.quantity = quantity;
         this.boughtInPrice = boughtInPrice;
         this.sellPrice = sellPrice;
-        this.shop = shop;
     }
 
     public Stock() {
@@ -101,15 +98,5 @@ public abstract class Stock implements Sellable {
     public double calculateMarkUp(){
         Double result = this.getSellPrice() - this.getBoughtInPrice();
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "shop_id", nullable = false)
-    public Shop getShop() {
-        return shop;
-    }
-
-    public void setShop(Shop shop) {
-        this.shop = shop;
     }
 }
