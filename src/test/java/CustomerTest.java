@@ -13,17 +13,17 @@ public class CustomerTest {
     @Before
     public void setUp() {
         Basket basket = new Basket();
-        customer = new Customer("BigDaddyKanePain", "69 Wood Street", 25, basket);
+        customer = new Customer("Tupal", "Argyle Street", 25, basket);
     }
 
     @Test
     public void customerHasUsername() {
-        assertEquals("BigDaddyKanePain", customer.getUsername());
+        assertEquals("Tupal", customer.getUsername());
     }
 
     @Test
     public void customerHasAddress() {
-        assertEquals("69 Wood Street", customer.getAddress());
+        assertEquals("Argyle Street", customer.getAddress());
     }
 
     @Test

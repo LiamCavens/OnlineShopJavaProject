@@ -3,6 +3,7 @@ package models;
 import models.Stock.Stock;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Set;
 
 @Entity
@@ -11,9 +12,10 @@ public class Basket {
 
     private int id;
     private double runningTotal;
-    private Set<Stock> itemsInBasket;
+    private ArrayList<Stock> itemsInBasket;
 
     public Basket() {
+        this.itemsInBasket = new ArrayList<>();
     }
 
     @Id
@@ -29,6 +31,9 @@ public class Basket {
 
     @Column(name= "running_total")
     public double getRunningTotal() {
+        for(Stock stock : itemsInBasket){
+            this.runningTotal += stock.getSellPrice();
+        }
         if (itemsInBasket.size() <= 2) {
             return runningTotal;
         }
@@ -40,12 +45,16 @@ public class Basket {
     }
 
     @OneToMany(mappedBy = "basket")
-    public Set<Stock> getItemsInBasket() {
+    public ArrayList<Stock> getItemsInBasket() {
         return itemsInBasket;
     }
 
-    public void setItemsInBasket(Set<Stock> itemsInBasket) {
+    public void setItemsInBasket(ArrayList<Stock> itemsInBasket) {
         this.itemsInBasket = itemsInBasket;
+    }
+
+    public void addItemToBasket(Stock stock){
+        this.itemsInBasket.add(stock);
     }
 
     public double applyDiscount(){
