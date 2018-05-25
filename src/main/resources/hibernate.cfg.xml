@@ -18,13 +18,5 @@
         <mapping class = "models.Stock"/>
         <mapping class = "models.Customer"/>
         <mapping class = "models.Basket"/>
-
-        <mapping class = "models.Shop"></mapping>
-        <mapping class= "models.Stock"></mapping>
-        <mapping class = "models.Customer"></mapping>
-        <mapping class= "models.Basket"></mapping>
-        <mapping class= "models.Game"></mapping>
-
-
     </session-factory>
 </hibernate-configuration>
