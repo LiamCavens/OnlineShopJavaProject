@@ -83,6 +83,7 @@ public abstract class Stock implements Sellable {
         this.sellPrice = sellPrice;
     }
 
+    @Column(name = "available")
     public boolean getAvailable() {
         if (getQuantity() >= 1){
            return true;

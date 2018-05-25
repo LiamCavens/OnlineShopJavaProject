@@ -11,9 +11,9 @@ import java.util.Map;
 
 import static spark.Spark.get;
 
-public class StockController {
+public class GameController {
 
-    public StockController(){
+    public GameController(){
         this.setupEndpoints();
     }
 
@@ -23,7 +23,7 @@ public class StockController {
             Map<String, Object> model = new HashMap<>();
             List<Game> games = DBHelper.getAll(Game.class);
             model.put("games", games);
-            model.put("template", "templates/stock/index.vtl");
+            model.put("template", "templates/stock/games/index.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
     }

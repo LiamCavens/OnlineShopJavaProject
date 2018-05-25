@@ -2,14 +2,10 @@ package models.stock;
 
 import behaviors.Sellable;
 
-public class Clothing extends Stock implements Sellable {
+public class Clothing extends Stock{
 
     public Clothing(String name, String description, int quantity, double boughtInPrice, double sellPrice) {
         super(name, description, quantity, boughtInPrice, sellPrice);
     }
 
-    public double calculateMarkUp(){
-        Double result = this.getSellPrice() - this.getBoughtInPrice();
-        return result;
-    }
 }

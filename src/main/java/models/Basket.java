@@ -45,6 +45,7 @@ public class Basket {
         this.runningTotal = runningTotal;
     }
 
+    @Column(name = "items_in_basket")
     public ArrayList<Stock> getItemsInBasket() {
         return itemsInBasket;
     }
