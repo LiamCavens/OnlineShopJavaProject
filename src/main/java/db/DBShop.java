@@ -1,7 +1,7 @@
 package db;
 
 import models.Shop;
-import models.Stock.Stock;
+import models.stock.Stock;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

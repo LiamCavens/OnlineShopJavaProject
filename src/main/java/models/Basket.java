@@ -1,9 +1,10 @@
 package models;
 
-import models.Stock.Stock;
+import models.stock.Stock;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -44,7 +45,6 @@ public class Basket {
         this.runningTotal = runningTotal;
     }
 
-    @OneToMany(mappedBy = "basket")
     public ArrayList<Stock> getItemsInBasket() {
         return itemsInBasket;
     }

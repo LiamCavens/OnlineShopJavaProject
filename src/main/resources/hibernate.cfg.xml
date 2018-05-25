@@ -15,8 +15,11 @@
         <property name="show_sql">true</property>
 
         <mapping class = "models.Shop"/>
-        <mapping class = "models.Stock"/>
+        <mapping class = "models.stock.Stock"/>
         <mapping class = "models.Customer"/>
         <mapping class = "models.Basket"/>
+        <mapping class = "models.stock.Game"/>
+        <mapping class = "models.stock.Clothing"/>
+        <mapping class = "models.stock.Console"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,6 +1,6 @@
 import models.Shop;
-import models.Stock.Game;
-import models.Stock.GameGenre;
+import models.stock.Game;
+import models.stock.GameGenre;
 import org.junit.Before;
 import org.junit.Test;
 

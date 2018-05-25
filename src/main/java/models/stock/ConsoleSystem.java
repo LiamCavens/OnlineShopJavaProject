@@ -1,4 +1,4 @@
-package models.Stock;
+package models.stock;
 
 public enum ConsoleSystem {
 

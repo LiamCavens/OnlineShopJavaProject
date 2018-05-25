@@ -1,6 +1,4 @@
-package models.Stock;
-
-import behaviors.Sellable;
+package models.stock;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

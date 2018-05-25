@@ -1,12 +1,5 @@
 package db;
 
-import models.Basket;
-import models.Customer;
-import models.Shop;
-import models.Stock.Clothing;
-import models.Stock.Game;
-import models.Stock.Stock;
-
 public class Seed {
 
     public static void seedData(){
@@ -16,7 +9,7 @@ public class Seed {
 //        DBHelper.deleteAll(Shop.class);
 //        DBHelper.deleteAll(Clothing.class);
 //        DBHelper.deleteAll(Game.class);
-//        DBHelper.deleteAll(Stock.class);
+//        DBHelper.deleteAll(stock.class);
 
 
     }

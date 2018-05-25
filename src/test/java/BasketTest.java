@@ -1,5 +1,5 @@
 import models.Basket;
-import models.Stock.Clothing;
+import models.stock.Clothing;
 import org.junit.Before;
 import org.junit.Test;
 
