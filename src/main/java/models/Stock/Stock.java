@@ -1,5 +1,9 @@
 package models.Stock;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "stock")
 public abstract class Stock {
 
     private int id;
@@ -18,6 +22,9 @@ public abstract class Stock {
         this.sellPrice = sellPrice;
     }
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     public int getId() {
         return id;
     }
@@ -26,6 +33,7 @@ public abstract class Stock {
         this.id = id;
     }
 
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -34,6 +42,7 @@ public abstract class Stock {
         this.name = name;
     }
 
+    @Column(name = "description")
     public String getDescription() {
         return description;
     }
@@ -42,6 +51,7 @@ public abstract class Stock {
         this.description = description;
     }
 
+    @Column(name = "quantity")
     public int getQuantity() {
         return quantity;
     }
@@ -50,6 +60,7 @@ public abstract class Stock {
         this.quantity = quantity;
     }
 
+    @Column(name = "bought_in_price")
     public double getBoughtInPrice() {
         return boughtInPrice;
     }
@@ -58,6 +69,7 @@ public abstract class Stock {
         this.boughtInPrice = boughtInPrice;
     }
 
+    @Column(name = "sell_price")
     public double getSellPrice() {
         return sellPrice;
     }
@@ -66,11 +78,14 @@ public abstract class Stock {
         this.sellPrice = sellPrice;
     }
 
-    public boolean isAvailable() {
-        return available;
+    public boolean getAvailable() {
+        if (getQuantity() >= 1){
+           return true;
+        } else
+        return false;
     }
 
     public void setAvailable(boolean available) {
-        this.available = available;
+        this.available = getAvailable();
     }
 }
