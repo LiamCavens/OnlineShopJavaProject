@@ -1,10 +1,12 @@
 package models.Stock;
 
+import behaviors.Sellable;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "stock")
-public abstract class Stock {
+public abstract class Stock implements Sellable {
 
     private int id;
     private String name;
@@ -20,6 +22,9 @@ public abstract class Stock {
         this.quantity = quantity;
         this.boughtInPrice = boughtInPrice;
         this.sellPrice = sellPrice;
+    }
+
+    public Stock() {
     }
 
     @Id
@@ -87,5 +92,10 @@ public abstract class Stock {
 
     public void setAvailable(boolean available) {
         this.available = getAvailable();
+    }
+
+    public double calculateMarkUp(){
+        Double result = this.getSellPrice() - this.getBoughtInPrice();
+        return result;
     }
 }

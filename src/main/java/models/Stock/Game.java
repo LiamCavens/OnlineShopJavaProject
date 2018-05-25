@@ -2,7 +2,13 @@ package models.Stock;
 
 import behaviors.Sellable;
 
-public class Game extends Stock implements Sellable{
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "games")
+public class Game extends Stock {
 
     private GameGenre genre;
     private String gameKey;
@@ -17,6 +23,10 @@ public class Game extends Stock implements Sellable{
         this.gameTrailer = gameTrailer;
     }
 
+    public Game() {
+    }
+
+    @Column(name = "game_key")
     public String getGameKey() {
         return gameKey;
     }
@@ -25,11 +35,7 @@ public class Game extends Stock implements Sellable{
         this.gameKey = gameKey;
     }
 
-    public double calculateMarkUp(){
-        Double result = this.getSellPrice() - this.getBoughtInPrice();
-        return result;
-    }
-
+    @Column(name = "game_image")
     public String getGameImage() {
         return gameImage;
     }
@@ -38,6 +44,7 @@ public class Game extends Stock implements Sellable{
         this.gameImage = gameImage;
     }
 
+    @Column(name = "game_trailer")
     public String getGameTrailer() {
         return gameTrailer;
     }
@@ -46,6 +53,7 @@ public class Game extends Stock implements Sellable{
         this.gameTrailer = gameTrailer;
     }
 
+    @Column(name = "genre")
     public GameGenre getGenre() {
         return genre;
     }
