@@ -8,12 +8,12 @@ import javax.persistence.Table;
 @Table(name = "games")
 public class Game extends Stock {
 
-    private GameGenre genre;
+    private String genre;
     private String gameKey;
     private String gameImage;
     private String gameTrailer;
 
-    public Game(String name, String description, int quantity, double boughtInPrice, double sellPrice, GameGenre genre, String gameKey, String gameImage, String gameTrailer) {
+    public Game(String name, String description, int quantity, double boughtInPrice, double sellPrice, String genre, String gameKey, String gameImage, String gameTrailer) {
         super(name, description, quantity, boughtInPrice, sellPrice);
         this.genre = genre;
         this.gameKey = gameKey;
@@ -52,11 +52,11 @@ public class Game extends Stock {
     }
 
     @Column(name = "genre")
-    public GameGenre getGenre() {
+    public String getGenre() {
         return genre;
     }
 
-    public void setGenre(GameGenre genre) {
+    public void setGenre(String genre) {
         this.genre = genre;
     }
 }
