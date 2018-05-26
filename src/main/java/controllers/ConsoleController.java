@@ -40,7 +40,8 @@ public class ConsoleController {
             int quantity = Integer.parseInt(req.queryParams("quantity"));
             int boughtInPrice = Integer.parseInt(req.queryParams("boughtInPrice"));
             int sellPrice = Integer.parseInt(req.queryParams("sellPrice"));
-            Console console = new Console(name, description, quantity, boughtInPrice, sellPrice);
+            String consoleImage = req.queryParams("console_image");
+            Console console = new Console(name, description, quantity, boughtInPrice, sellPrice, consoleImage);
             DBHelper.saveOrUpdate(console);
             res.redirect("/consoles");
             return null;
