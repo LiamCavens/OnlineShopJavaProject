@@ -1,5 +1,11 @@
 <h1>Games</h1>
 
+<div class="btn-container">
+<button>
+<a href="/games/new">Add Game</a>
+</button>
+</div>
+
 <div class="product-container">
 #foreach ($game in $games)
     <a href="/games/$game.getId()">

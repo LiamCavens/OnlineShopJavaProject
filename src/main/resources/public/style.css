@@ -99,3 +99,13 @@ h1 {
 .product-text-link {
     color: #81E979;
 }
+.btn-container {
+    text-align: center;
+    padding: 15px;
+}
+.btn-container a {
+    font-family: 'Bungee', cursive;
+    color: #81E979;
+    padding: 15px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
