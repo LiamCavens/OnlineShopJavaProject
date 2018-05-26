@@ -1,19 +1,18 @@
-<p class="pageHeader">All Clothing</p>
+<h1>Clothing</h1>
 
-<div>
-    <a href="/clothing/new" class="button center">New Clothes</a>
+<div class="btn-container">
+    <button>
+        <a href="/clothing/new">Add Clothing</a>
+    </button>
 </div>
-<div class="container">
-    <table>
-        <tr>
-            <th>Clothing</th>
-            <th></th>
-        </tr>
-        #foreach(clothes in $clothing)
-        <tr>
-            <td>$clothing.getTitle()</td>
-            <td><a href="/clothing/$clothing.getId()" class="button center">Details</a></td>
-        <tr>
-            #end
-    </table>
+
+<div class="product-container">
+    #foreach ($clothes in $clothing)
+    <a href="/clothing/$clothing.getId()">
+        <div class="product-list-show-cover">
+            <img class="product-resize-for-list" src="$game.getClothingImage()" alt="">
+    </a>
+    <p><a class="product-text-link" href="/clothing/$clothing.getId()">$clothing.getName()</a></p>
+</div>
+#end
 </div>

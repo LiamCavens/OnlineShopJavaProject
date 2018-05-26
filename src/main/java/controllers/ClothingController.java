@@ -18,8 +18,8 @@ public class ClothingController {
 
         get("/clothing", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            List<Clothing> clothing = DBHelper.getAll(Clothing.class);
-            model.put("clothing", clothing);
+            List<Clothing> clothes = DBHelper.getAll(Clothing.class);
+            model.put("clothes", clothes);
             model.put("template", "templates/stock/clothing/index.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
@@ -36,7 +36,8 @@ public class ClothingController {
             int quantity = Integer.parseInt(req.queryParams("quantity"));
             int boughtInPrice = Integer.parseInt(req.queryParams("boughtInPrice"));
             int sellPrice = Integer.parseInt(req.queryParams("sellPrice"));
-            Clothing clothing = new Clothing(name, description, quantity, boughtInPrice, sellPrice);
+            String clothingImage = req.queryParams("clothing_url");
+            Clothing clothing = new Clothing(name, description, quantity, boughtInPrice, sellPrice, clothingImage);
             DBHelper.saveOrUpdate(clothing);
             res.redirect("/clothing");
             return null;
