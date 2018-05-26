@@ -1,7 +1,7 @@
-<h1>New Game</h1>
+<h1>New Console</h1>
 
-<form action="/games" method="post">
-    <label for="name">Game Name:</label>
+<form action="/consoles" method="post">
+    <label for="name">Console Name:</label>
     <input class="inputbox" type="text" name="name" required="true" id="name">
 
     <label for="description">Description:</label>
@@ -16,20 +16,10 @@
     <label for="sellPrice">Sell Price:</label>
     <input type="number" name="sellPrice" required="true" class="inputbox" id="sellPrice">
 
-    <label for="genre">Genre:</label>
-    <input class="inputbox" type="text" name="genre" required="true" id="genre">
-
-    <label for="gameKey">Game Key:</label>
-    <input class="inputbox" type="text" name="gameKey" required="true" id="gameKey">
-
-    <label for="gameImage">Game Image URL:</label>
-    <input class="inputbox" type="text" name="gameImage" required="true" id="gameImage">
-
-    <label for="gameTrailer">Game Trailer URL:</label>
-    <input class="inputbox" type="text" name="gameTrailer" required="true" id="gameTrailer">
-
+    <label for="consoleImage">Console Image URL:</label>
+    <input class="inputbox" type="text" name="gameImage" required="true" id="consoleImage">
 
 
     <input type="submit" value="Save" class="button">
 </form>
-<a href="/games" class="button center">Cancel</a>
+<a href="/consoles" class="button center">Cancel</a>
