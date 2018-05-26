@@ -1,7 +1,7 @@
 package controllers;
 
 import db.DBHelper;
-import models.stock.Console;
+import models.stock.Clothing;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
@@ -12,37 +12,33 @@ import java.util.Map;
 import static spark.Spark.get;
 import static spark.Spark.post;
 
-public class ConsoleController {
-
-    public ConsoleController(){
-        this.setupEndpoints();
-    }
+public class ClothingController {
 
     private void setupEndpoints() {
 
-        get("/consoles", (req, res) -> {
+        get("/clothing", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            List<Console> consoles = DBHelper.getAll(Console.class);
-            model.put("consoles", consoles);
-            model.put("template", "templates/stock/consoles/index.vtl");
+            List<Clothing> clothing = DBHelper.getAll(Clothing.class);
+            model.put("clothing", clothing);
+            model.put("template", "templates/stock/clothing/index.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        get ("/consoles/new", (req, res) -> {
+        get ("/clothing/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            model.put("template", "templates/stock/consoles/create.vtl");
+            model.put("template", "templates/stock/clothing/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        post ("/consoles", (req, res) -> {
+        post ("/clothing", (req, res) -> {
             String name = req.queryParams("name");
             String description = req.queryParams("description");
             int quantity = Integer.parseInt(req.queryParams("quantity"));
             int boughtInPrice = Integer.parseInt(req.queryParams("boughtInPrice"));
             int sellPrice = Integer.parseInt(req.queryParams("sellPrice"));
-            Console console = new Console(name, description, quantity, boughtInPrice, sellPrice);
-            DBHelper.saveOrUpdate(console);
-            res.redirect("/consoles");
+            Clothing clothing = new Clothing(name, description, quantity, boughtInPrice, sellPrice);
+            DBHelper.saveOrUpdate(clothing);
+            res.redirect("/clothing");
             return null;
         }, new VelocityTemplateEngine());
     }
