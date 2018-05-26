@@ -1,0 +1,19 @@
+<p class="pageHeader">Consoles</p>
+
+<div>
+    <a href="/consoles/new" class="button center">New Consoles</a>
+</div>
+<div class="container">
+    <table>
+        <tr>
+            <th>Consoles</th>
+            <th></th>
+        </tr>
+        #foreach($console in $consoles)
+        <tr>
+            <td>$console.getTitle()</td>
+            <td><a href="/consoles/$console.getId()" class="button center">Details</a></td>
+        <tr>
+            #end
+    </table>
+</div>

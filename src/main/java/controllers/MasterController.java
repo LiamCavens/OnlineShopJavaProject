@@ -1,7 +1,6 @@
 package controllers;
 
 import db.Seed;
-import models.Basket;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -11,18 +10,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static spark.Spark.get;
+import static spark.SparkBase.staticFileLocation;
 
 public class MasterController {
 
     public static void main(String[] args) {
 
         Seed.seedData();
+        staticFileLocation("/public");
 
         LoginController loginController = new LoginController();
         BasketController basketController = new BasketController();
         CustomerController customerController = new CustomerController();
         ShopController shopController = new ShopController();
-        StockController stockController = new StockController();
+        GameController gameController = new GameController();
+        ConsoleController consoleController = new ConsoleController();
 
         get("/", (Request req, Response res) -> {
             Map<String, Object> model = new HashMap<>();

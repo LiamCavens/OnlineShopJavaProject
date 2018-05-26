@@ -1,10 +1,9 @@
 package models;
 
-import models.Stock.Stock;
+import models.stock.Stock;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Set;
 
 @Entity
 @Table(name = "customers")
@@ -66,6 +65,7 @@ public class Customer {
         this.age = age;
     }
 
+    @OneToOne(cascade = CascadeType.PERSIST)
     public Basket getBasket() {
         return basket;
     }
@@ -74,6 +74,7 @@ public class Customer {
         this.basket = basket;
     }
 
+    @Column(name = "purchases")
     public ArrayList<Stock> getPurchases() {
         return purchases;
     }
