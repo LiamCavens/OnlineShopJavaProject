@@ -1,18 +1,18 @@
-<h1>Consoles</h1>
-<div>
-    <a href="/consoles/new" class="button center">New Consoles</a>
+<h1>Games</h1>
+
+<div class="btn-container">
+    <button>
+        <a href="/consoles/new">Add Consoles</a>
+    </button>
 </div>
-<div class="container">
-    <table>
-        <tr>
-            <th>Consoles</th>
-            <th></th>
-        </tr>
-        #foreach($console in $consoles)
-        <tr>
-            <td>$console.getName()</td>
-            <td><a href="/consoles/$console.getId()" class="button center">Details</a></td>
-        <tr>
-            #end
-    </table>
+
+<div class="product-container">
+    #foreach ($console in $consoles)
+    <a href="/consoles/$console.getId()">
+        <div class="product-list-show-cover">
+            <img class="product-resize-for-list" src="$console.getConsoleImage()" alt="">
+    </a>
+    <p><a class="product-text-link" href="/consoles/$console.getId()">$console.getName()</a></p>
+</div>
+#end
 </div>
