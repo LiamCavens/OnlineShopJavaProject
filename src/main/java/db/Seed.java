@@ -22,7 +22,6 @@ public class Seed {
 
         Console console1 = new Console("Xbox One", "The world's most powerful console" , 20, 300.00, 450.00, "https://i1.wp.com/freepngimages.com/wp-content/uploads/2015/10/playstation-4-games-console.png?fit=624%2C365");
 
-
         DBHelper.saveOrUpdate(game1);
         DBHelper.saveOrUpdate(game2);
         DBHelper.saveOrUpdate(game3);
