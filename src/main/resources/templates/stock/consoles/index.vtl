@@ -2,12 +2,12 @@
 
 <div class="btn-container">
     <button>
-        <a href="/consoles/new">Add Console</a>
+        <a href="/consoles/new">Add Consoles</a>
     </button>
 </div>
 
 <div class="product-container">
-    #foreach ($console in $console)
+    #foreach ($console in $consoles)
     <a href="/consoles/$console.getId()">
         <div class="product-list-show-cover">
             <img class="product-resize-for-list" src="$console.getConsoleImage()" alt="">
