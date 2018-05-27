@@ -50,5 +50,19 @@ public class GameController {
             res.redirect("/games");
             return null;
         }, new VelocityTemplateEngine());
+
+        get("/games/:id", (req, res) -> {
+            String gameId = req.params(":id");
+            Integer intId = Integer.parseInt(gameId);
+            Game game = DBHelper.find(intId, Game.class);
+
+            Map<String, Object> model = new HashMap<>();
+          //  String loggedInUser = LoginController.getLoggedInUserName(req, res);
+          //  model.put("user", loggedInUser);
+            model.put("game", game);
+            model.put("template", "templates/stock/games/show.vtl");
+
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
     }
 }
