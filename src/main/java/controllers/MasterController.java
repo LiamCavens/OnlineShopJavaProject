@@ -25,6 +25,7 @@ public class MasterController {
         ShopController shopController = new ShopController();
         GameController gameController = new GameController();
         ConsoleController consoleController = new ConsoleController();
+        ClothingController clothingController = new ClothingController();
 
         get("/", (Request req, Response res) -> {
             Map<String, Object> model = new HashMap<>();
