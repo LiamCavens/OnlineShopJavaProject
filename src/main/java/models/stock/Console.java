@@ -11,21 +11,15 @@ import java.util.Set;
 @Table(name = "consoles")
 public class Console extends Stock {
 
-<<<<<<< HEAD
     private String consoleImage;
     private Set<Game> games;
-=======
     private String image;
->>>>>>> 140df68ec6391a38f283816123b31cf83633ac8d
 
     public Console(String name, String description, int quantity, double boughtInPrice, double sellPrice, String image) {
         super(name, description, quantity, boughtInPrice, sellPrice);
-<<<<<<< HEAD
         this.consoleImage = consoleImage;
         this.games = new HashSet<>();
-=======
         this.image = image;
->>>>>>> 140df68ec6391a38f283816123b31cf83633ac8d
     }
 
     public Console() {
