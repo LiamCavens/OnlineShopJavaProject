@@ -1,1 +1,12 @@
-<p class="pageHeader">All Items</p>
+<h1>All Items</h1>
+
+<div class="product-container">
+    #foreach ($stock in $stock)
+    <a href="/stock/$stock.getId()">
+        <div class="product-list-show-cover">
+            <img class="product-resize-for-list" src="$stock.getImage()" alt="">
+    </a>
+    <p><a class="product-text-link" href="/basket/$stock.getId()">$stock.getName()</a></p>
+</div>
+#end
+</div>

@@ -1,5 +1,6 @@
 package db;
 
+import models.Basket;
 import models.stock.Clothing;
 import models.stock.Console;
 import models.stock.Game;
@@ -8,14 +9,17 @@ public class Seed {
 
     public static void seedData(){
 
-//        DBHelper.deleteAll(Basket.class);
+        DBHelper.deleteAll(Basket.class);
 //        DBHelper.deleteAll(Customer.class);
-//       DBHelper.deleteAll(Clothing.class);
+       DBHelper.deleteAll(Clothing.class);
        DBHelper.deleteAll(Game.class);
 //        DBHelper.deleteAll(stock.class);
        DBHelper.deleteAll(Console.class);
 
 
+
+        Basket defaultBasket = new Basket();
+      
         Console console1 = new Console("Xbox One", "The world's most powerful console" , 20, 320.00, 420.00, "http://www.techdaring.com/wp-content/uploads/2016/01/xbox-one-slim.png");
         Console console2 = new Console("Playstation 4", "For the players" , 20, 300.00, 400.00, "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/PS4-Console-wDS4.png/1200px-PS4-Console-wDS4.png");
         DBHelper.saveOrUpdate(console1);
@@ -42,6 +46,11 @@ public class Seed {
         DBHelper.saveOrUpdate(clothing4);
 
 
+
+        Basket basket = new Basket();
+        basket.addItemToBasket(game1);
+
+        DBHelper.saveOrUpdate(basket);
 
     }
 
