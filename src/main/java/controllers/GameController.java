@@ -24,6 +24,8 @@ public class GameController {
         get("/games", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Game> games = DBHelper.getAll(Game.class);
+            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            model.put("user", loggedInUser);
             model.put("games", games);
             model.put("template", "templates/stock/games/index.vtl");
             return new ModelAndView(model, "templates/layout.vtl");

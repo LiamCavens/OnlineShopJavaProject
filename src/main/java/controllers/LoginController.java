@@ -27,9 +27,16 @@ public class LoginController {
         }, new VelocityTemplateEngine());
 
         get("/login", (req, res) -> {
-            Map<String, Object> model = new HashMap<>();
-            model.put("template", "templates/login.vtl");
-            return new ModelAndView(model, "templates/layout.vtl");
+            String username = req.session().attribute("username");
+            if (username == null || username.isEmpty()){
+                Map<String, Object> model = new HashMap<>();
+                model.put("template", "templates/login.vtl");
+                return new ModelAndView(model, "templates/layout.vtl");
+            }
+            else {
+                res.redirect("/customer");
+                return null;
+            }
         }, new VelocityTemplateEngine());
 
         get("/logout", (req, res) -> {
