@@ -1,19 +1,25 @@
 <h1 class="show-title">$game.getName()</h1>
 
 <div class="show-page">
+    <div class="btn-container">
+    <button>
+    <a href="/games/$game.getId()/edit">Edit Game</a>
+    </button>
+
+        <form action="/games/$game.getId()/delete" method="post" >
+            <input class="button" type="submit" value="Delete">
+        </form>
+    </div>
+
 <div class="show-cover">
     <img class="product-resize-for-show" src="$game.getImage()" alt="">
 
 
 
 </div>
-    <form action="/basket/$game.getGameId" method="post">
+    <form action="/basket/$game.getId()" method="post">
         <input class="button" type="submit" value="Add To Basket">
     </form>
-
-
-
-
 
 <div class="show-info">
     <p>Title : $game.getName()</p>
