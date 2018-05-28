@@ -23,11 +23,23 @@ public class Seed {
         Console console1 = new Console("Xbox One", "The world's most powerful console" , 20, 320.00, 420.00, "http://www.techdaring.com/wp-content/uploads/2016/01/xbox-one-slim.png");
         Console console2 = new Console("Playstation 4", "For the players" , 20, 300.00, 400.00, "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/PS4-Console-wDS4.png/1200px-PS4-Console-wDS4.png");
 
+        Clothing clothing1 = new Clothing("I Went Outside Once The Graphics Weren't Great T-Shirt", "Looking for the perfect excuse for staying inside a lot?", 1, 10, 20, "https://d1x7zurbps6occ.cloudfront.net/product/xlarge/513175-150221.jpg");
+        Clothing clothing2 = new Clothing("Fallout T-Shirt", "Do you dare try and escape the vault? Set in a terrifying apocalyptic world, this eerie Fallout 4 t-shirt displays the Vault Boy mascot, pictured alongside the warnings of 'Surface - Never! Vault - Forever!' Official merchandise.", 1, 10, 40, "https://d1x7zurbps6occ.cloudfront.net/product/xlarge/529473-153868.jpg");
+        Clothing clothing3 = new Clothing("Doom T-Shirt", "BFG not included", 1, 10, 60, "https://images-na.ssl-images-amazon.com/images/I/41Ab4IQzDqL.jpg");
+        Clothing clothing4 = new Clothing("Leather Kilt", "Pants needed", 1, 5, 10, "http://www.leatherexotica.com/wp-content/uploads/2015/06/LEMK-012.jpg");
+
         DBHelper.saveOrUpdate(game1);
         DBHelper.saveOrUpdate(game2);
         DBHelper.saveOrUpdate(game3);
+      
+        DBHelper.saveOrUpdate(clothing1);
+        DBHelper.saveOrUpdate(clothing2);
+        DBHelper.saveOrUpdate(clothing3);
+        DBHelper.saveOrUpdate(clothing4);
+
         DBHelper.saveOrUpdate(console1);
         DBHelper.saveOrUpdate(console2);
+
     }
 
 }
