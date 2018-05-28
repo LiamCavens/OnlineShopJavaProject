@@ -1,7 +1,5 @@
 package models.stock;
 
-import behaviors.Sellable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -10,21 +8,21 @@ import javax.persistence.Table;
 @Table(name="clothing")
 public class Clothing extends Stock{
 
-    private String clothingImage;
+    private String image;
 
-    public Clothing(String name, String description, int quantity, double boughtInPrice, double sellPrice, String clothingImage) {
+    public Clothing(String name, String description, int quantity, double boughtInPrice, double sellPrice, String image) {
         super(name, description, quantity, boughtInPrice, sellPrice);
-        this.clothingImage = clothingImage;
+        this.image = image;
     }
 
     public Clothing(){}
 
     @Column(name="clothing_image")
-    public String getClothingImage() {
-        return clothingImage;
+    public String getImage() {
+        return image;
     }
 
-    public void setClothingImage(String clothingImage) {
-        this.clothingImage = clothingImage;
+    public void setImage(String image) {
+        this.image = image;
     }
 }

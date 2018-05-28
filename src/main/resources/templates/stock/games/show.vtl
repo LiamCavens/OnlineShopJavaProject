@@ -2,11 +2,19 @@
 
 <div class="show-page">
 <div class="show-cover">
-    <img class="product-resize-for-show" src="$game.getGameImage()" alt="">
+    <img class="product-resize-for-show" src="$game.getImage()" alt="">
+
+
+
 </div>
-    <form action="/basket/$game.getId()" method="post">
+    <form action="/basket/$game.getGameId" method="post">
         <input class="button" type="submit" value="Add To Basket">
     </form>
+
+
+
+
+
 <div class="show-info">
     <p>Title : $game.getName()</p>
     <p>Genre : $game.getGenre()</p>
