@@ -1,0 +1,10 @@
+<h1>Basket</h1>
+
+<div class="product-container">
+
+    #foreach ($stock in $basket.getItemsInBasket())
+        <p>$stock.getName()</p>
+    #end
+
+
+</div>

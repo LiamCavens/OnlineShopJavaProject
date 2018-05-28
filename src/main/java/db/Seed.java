@@ -42,6 +42,11 @@ public class Seed {
         DBHelper.saveOrUpdate(console1);
         DBHelper.saveOrUpdate(console2);
 
+        Basket basket = new Basket();
+        basket.addItemToBasket(game1);
+
+        DBHelper.saveOrUpdate(basket);
+
     }
 
 }
