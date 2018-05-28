@@ -28,7 +28,8 @@ public class LoginController {
 
         get("/login", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "templates/login.vtl");
+            model.put("template", "templates/login.vtl");
+            return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
         get("/logout", (req, res) -> {
