@@ -11,25 +11,33 @@ import java.util.Set;
 @Table(name = "consoles")
 public class Console extends Stock {
 
+<<<<<<< HEAD
     private String consoleImage;
     private Set<Game> games;
+=======
+    private String image;
+>>>>>>> 140df68ec6391a38f283816123b31cf83633ac8d
 
-    public Console(String name, String description, int quantity, double boughtInPrice, double sellPrice, String consoleImage) {
+    public Console(String name, String description, int quantity, double boughtInPrice, double sellPrice, String image) {
         super(name, description, quantity, boughtInPrice, sellPrice);
+<<<<<<< HEAD
         this.consoleImage = consoleImage;
         this.games = new HashSet<>();
+=======
+        this.image = image;
+>>>>>>> 140df68ec6391a38f283816123b31cf83633ac8d
     }
 
     public Console() {
     }
 
     @Column(name = "console_image")
-    public String getConsoleImage() {
-        return consoleImage;
+    public String getImage() {
+        return image;
     }
 
-    public void setConsoleImage(String consoleImage) {
-        this.consoleImage = consoleImage;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     @OneToMany(mappedBy = "console")

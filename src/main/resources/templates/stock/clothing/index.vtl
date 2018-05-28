@@ -10,7 +10,7 @@
     #foreach ($clothing in $clothes)
     <a href="/clothing/$clothing.getId()">
         <div class="product-list-show-cover">
-            <img class="product-resize-for-list" src="$clothing.getClothingImage()" alt="">
+            <img class="product-resize-for-list" src="$clothing.getImage()" alt="">
     </a>
     <p><a class="product-text-link" href="/clothing/$clothing.getId()">$clothing.getName()</a></p>
 </div>

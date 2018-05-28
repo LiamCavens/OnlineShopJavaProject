@@ -9,14 +9,18 @@ public class Game extends Stock {
     private String genre;
     private Console console;
     private String gameKey;
-    private String gameImage;
+    private String image;
     private String gameTrailer;
 
+<<<<<<< HEAD
     public Game(String name, String description, int quantity, double boughtInPrice, double sellPrice, String genre, Console console, String gameKey, String gameImage, String gameTrailer) {
+=======
+    public Game(String name, String description, int quantity, double boughtInPrice, double sellPrice, String genre, String gameKey, String image, String gameTrailer) {
+>>>>>>> 140df68ec6391a38f283816123b31cf83633ac8d
         super(name, description, quantity, boughtInPrice, sellPrice);
         this.genre = genre;
         this.gameKey = gameKey;
-        this.gameImage = gameImage;
+        this.image = image;
         this.gameTrailer = gameTrailer;
     }
 
@@ -33,12 +37,12 @@ public class Game extends Stock {
     }
 
     @Column(name = "game_image")
-    public String getGameImage() {
-        return gameImage;
+    public String getImage() {
+        return image;
     }
 
-    public void setGameImage(String gameImage) {
-        this.gameImage = gameImage;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     @Column(name = "game_trailer")

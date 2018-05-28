@@ -47,4 +47,11 @@ public class BasketTest {
         basket.addItemToBasket(clothing);
         assertEquals(85, basket.getRunningTotal(), 0.1);
     }
+
+    @Test
+    public void test() {
+        basket.addItemToBasket(clothing);
+        basket.addItemToBasket(clothing2);
+        System.out.println(basket.getItemsInBasket());
+    }
 }

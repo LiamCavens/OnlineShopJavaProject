@@ -10,7 +10,7 @@
 #foreach ($game in $games)
     <a href="/games/$game.getId()">
  <div class="product-list-show-cover">
-     <img class="product-resize-for-list" src="$game.getGameImage()" alt="">
+     <img class="product-resize-for-list" src="$game.getImage()" alt="">
  </a>
     <p><a class="product-text-link" href="/games/$game.getId()">$game.getName()</a></p>
 </div>
