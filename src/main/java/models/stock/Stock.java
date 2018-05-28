@@ -1,6 +1,7 @@
 package models.stock;
 
 import behaviors.Sellable;
+import models.Basket;
 
 import javax.persistence.*;
 
