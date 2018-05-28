@@ -3,7 +3,11 @@ package models.stock;
 import behaviors.Sellable;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="clothing")
 public class Clothing extends Stock{
 
     private String clothingImage;
@@ -12,6 +16,8 @@ public class Clothing extends Stock{
         super(name, description, quantity, boughtInPrice, sellPrice);
         this.clothingImage = clothingImage;
     }
+
+    public Clothing(){}
 
     @Column(name="clothing_image")
     public String getClothingImage() {
