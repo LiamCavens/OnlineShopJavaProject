@@ -2,6 +2,7 @@ package controllers;
 
 import db.DBHelper;
 import models.stock.Clothing;
+import models.stock.Game;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
@@ -46,6 +47,19 @@ public class ClothingController {
             res.redirect("/clothing");
             return null;
         }, new VelocityTemplateEngine());
+
+        get("/clothing/:id", (req, res) -> {
+            String clothingId = req.params(":id");
+            Integer intId = Integer.parseInt(clothingId);
+            Clothing clothing = DBHelper.find(intId, Clothing.class);
+            Map<String, Object> model = new HashMap<>();
+            //  String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            //  model.put("user", loggedInUser);
+            model.put("clothing", clothing);
+            model.put("template", "templates/stock/clothing/show.vtl");
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
     }
 
 
