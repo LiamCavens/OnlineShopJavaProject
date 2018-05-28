@@ -19,6 +19,12 @@ h1 {
     margin: 1% 0%;
 }
 
+h3 {
+    font-family: 'Bungee', cursive;
+    color: #81E979;
+    margin: 1% 2%;
+}
+
 .navbar {
     background-color: #363635;
     overflow: hidden;
@@ -91,9 +97,19 @@ h1 {
     width: 130px;
 }
 
+.show-title {
+     text-shadow: -1px -1px 0 #81E979, 1px -1px 0 #81E979, -1px 1px 0 #81E979, 1px 1px 0 #81E979;
+}
+
 .product-resize-for-list {
     height: 100px;
     width: 70px;
+}
+
+
+.product-resize-for-show {
+    height: 200px;
+    width: 140px;
 }
 
 .product-text-link {
@@ -108,4 +124,33 @@ h1 {
     color: #81E979;
     padding: 15px;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.login-page {
+    margin: auto;
+    width: 50%;
+    border: 3px #81E979;
+    padding: 10px;
+}
+
+.background {
+    background-image: url(https://www.destructoid.com//ul/478638-h1.jpg);
+  height: 100vh;
+  width: 100vw;
+}
+
+.description-box {
+    background-color: #6B6D76;
+    padding: 25px;
+    color: #F7F0F0;
+    height: 30vh;
+    width: 50vw;
+    border: 5px solid #363635;
+    box-shadow: 10px 10px 5px #363635;
+}
+
+.show-page {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
 }
