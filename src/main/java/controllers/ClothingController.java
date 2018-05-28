@@ -14,6 +14,10 @@ import static spark.Spark.post;
 
 public class ClothingController {
 
+    public ClothingController(){
+        this.setupEndpoints();
+    }
+
     private void setupEndpoints() {
 
         get("/clothing", (req, res) -> {
