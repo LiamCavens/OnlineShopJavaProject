@@ -1,5 +1,6 @@
 package db;
 
+import models.Basket;
 import models.stock.Clothing;
 import models.stock.Console;
 import models.stock.Game;
@@ -8,9 +9,9 @@ public class Seed {
 
     public static void seedData(){
 
-//        DBHelper.deleteAll(Basket.class);
+        DBHelper.deleteAll(Basket.class);
 //        DBHelper.deleteAll(Customer.class);
-//       DBHelper.deleteAll(Clothing.class);
+       DBHelper.deleteAll(Clothing.class);
        DBHelper.deleteAll(Game.class);
 //        DBHelper.deleteAll(stock.class);
 
