@@ -1,6 +1,7 @@
 package controllers;
 
 import db.DBHelper;
+import models.stock.Clothing;
 import models.stock.Console;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -46,7 +47,19 @@ public class ConsoleController {
             res.redirect("/consoles");
             return null;
         }, new VelocityTemplateEngine());
+
+        get("/consoles/:id", (req, res) -> {
+            String consoleId = req.params(":id");
+            Integer intId = Integer.parseInt(consoleId);
+            Console console = DBHelper.find(intId, Console.class);
+            Map<String, Object> model = new HashMap<>();
+            //  String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            //  model.put("user", loggedInUser);
+            model.put("console", console);
+            model.put("template", "templates/stock/consoles/show.vtl");
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
     }
-
-
 }
+
