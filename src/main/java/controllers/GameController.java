@@ -79,10 +79,10 @@ public class GameController {
             int consoleId = Integer.parseInt(req.queryParams("console"));
             Console console = DBHelper.find(consoleId, Console.class);
             String gameKey = req.queryParams("gameKey");
-            String gameImage = req.queryParams("gameImage");
+            String image = req.queryParams("image");
             String gameTrailer = req.queryParams("gameTrailer");
 
-            Game game = new Game(name, description, quantity, boughtInPrice, sellPrice, genre, console, gameKey, gameImage, gameTrailer);
+            Game game = new Game(name, description, quantity, boughtInPrice, sellPrice, genre, console, gameKey, image, gameTrailer);
             DBHelper.saveOrUpdate(game);
             res.redirect("/games");
             return null;

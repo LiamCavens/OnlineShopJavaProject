@@ -7,7 +7,7 @@
     </button>
 
         <form action="/games/$game.getId()/delete" method="post" >
-            <input class="button" type="submit" value="Delete">
+            <input class="button" type="submit" value="Delete Game">
         </form>
     </div>
 
@@ -18,11 +18,7 @@
 
 </div>
 
-    <form action="/basket/$game.getId()" method="post">
-        <input class="button" type="submit" value="Add To Basket">
-    </form>
-
-    <form action="/basket/$game.getGameId" method="post">
+    <form action="/basket" method="post">
         <input class="button" type="submit" value="Add To Basket">
     </form>
 
