@@ -1,19 +1,22 @@
 package models.stock;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "games")
 public class Game extends Stock {
 
     private String genre;
+    private Console console;
     private String gameKey;
     private String image;
     private String gameTrailer;
 
+<<<<<<< HEAD
+    public Game(String name, String description, int quantity, double boughtInPrice, double sellPrice, String genre, Console console, String gameKey, String gameImage, String gameTrailer) {
+=======
     public Game(String name, String description, int quantity, double boughtInPrice, double sellPrice, String genre, String gameKey, String image, String gameTrailer) {
+>>>>>>> 140df68ec6391a38f283816123b31cf83633ac8d
         super(name, description, quantity, boughtInPrice, sellPrice);
         this.genre = genre;
         this.gameKey = gameKey;
@@ -58,5 +61,15 @@ public class Game extends Stock {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "console_id")
+    public Console getConsole() {
+        return console;
+    }
+
+    public void setConsole(Console console) {
+        this.console = console;
     }
 }
