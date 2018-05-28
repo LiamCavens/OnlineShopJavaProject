@@ -12,7 +12,7 @@ public class Game extends Stock {
     private String image;
     private String gameTrailer;
 
-    public Game(String name, String description, int quantity, double boughtInPrice, double sellPrice, String genre, Console console, String gameKey, String gameImage, String gameTrailer) {
+    public Game(String name, String description, int quantity, double boughtInPrice, double sellPrice, String genre, Console console, String gameKey, String image, String gameTrailer) {
 
         super(name, description, quantity, boughtInPrice, sellPrice);
         this.genre = genre;

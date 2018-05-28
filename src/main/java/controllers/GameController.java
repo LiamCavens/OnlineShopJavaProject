@@ -108,7 +108,7 @@ public class GameController {
             double boughtInPrice = Double.parseDouble(req.queryParams("boughtInPrice"));
             double sellPrice = Double.parseDouble(req.queryParams("sellPrice"));
             String genre = req.queryParams("genre");
-            String gameImage = req.queryParams("gameImage");
+            String image = req.queryParams("gameImage");
             String gameTrailer = req.queryParams("gameTrailer");
 
             game.setName(name);
@@ -117,7 +117,7 @@ public class GameController {
             game.setBoughtInPrice(boughtInPrice);
             game.setSellPrice(sellPrice);
             game.setGenre(genre);
-            game.setGameImage(gameImage);
+            game.setImage(image);
             game.setGameTrailer(gameTrailer);
 
             DBHelper.saveOrUpdate(game);
