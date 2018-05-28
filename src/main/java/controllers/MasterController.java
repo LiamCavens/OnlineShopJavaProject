@@ -22,7 +22,6 @@ public class MasterController {
         LoginController loginController = new LoginController();
         BasketController basketController = new BasketController();
         CustomerController customerController = new CustomerController();
-        ShopController shopController = new ShopController();
         GameController gameController = new GameController();
         ConsoleController consoleController = new ConsoleController();
         ClothingController clothingController = new ClothingController();
