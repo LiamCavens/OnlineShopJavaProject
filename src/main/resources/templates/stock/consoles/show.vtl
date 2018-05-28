@@ -2,6 +2,7 @@
 
 <div class="show-page">
 <div class="show-cover">
+
     <img class="product-resize-for-show" src="$console.getImage()" alt="">
 </div>
 <div class="show-info">
@@ -11,7 +12,9 @@
         <h3>Description</h3>
         <p>$console.getDescription()</p>
     </div>
-
+    <button>
+        <a href="/consoles/$console.getId()/edit">Edit Console</a>
+    </button>
     <form action="/consoles/$console.getId()/delete" method="post" >
         <input class="button" type="submit" value="Delete">
     </form>

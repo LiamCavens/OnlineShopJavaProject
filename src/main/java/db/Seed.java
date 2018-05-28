@@ -12,9 +12,7 @@ public class Seed {
     public static void seedData(){
 
         DBHelper.deleteAll(Basket.class);
-
-       DBHelper.deleteAll(Console.class);
-      
+        DBHelper.deleteAll(Console.class);
         DBHelper.deleteAll(Customer.class);
         DBHelper.deleteAll(Clothing.class);
         DBHelper.deleteAll(Game.class);
