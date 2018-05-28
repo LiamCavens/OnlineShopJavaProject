@@ -56,6 +56,7 @@ public class Basket {
 
     public void addItemToBasket(Stock stock){
         this.itemsInBasket.add(stock);
+        stock.setQuantity((stock.getQuantity() - 1));
     }
 
     public double applyDiscount(){

@@ -15,6 +15,10 @@ import static spark.Spark.post;
 
 public class BasketController {
 
+    public BasketController(){
+        this.setupEndpoints();
+    }
+
     private void setupEndpoints() {
 
         get("/basket", (req, res) -> {
@@ -23,6 +27,18 @@ public class BasketController {
             model.put("basket", basket);
             model.put("template", "templates/basket/index.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+        post("/basket/:game_id", (req, res) -> {
+            //This does not work
+
+            String name = req.queryParams("name");
+            int quantity = Integer.parseInt(req.queryParams("quantity"));
+            int sellPrice = Integer.parseInt(req.queryParams("sellPrice"));
+            String gameImage = req.queryParams("gameImage");
+
+            res.redirect("/basket");
+            return null;
         }, new VelocityTemplateEngine());
     }
 }
