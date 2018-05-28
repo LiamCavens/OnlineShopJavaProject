@@ -31,6 +31,8 @@ public class GameController {
 
         get ("/games/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
+            List<Console> consoles = DBHelper.getAll(Console.class);
+            model.put("consoles", consoles);
             model.put("template", "templates/stock/games/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
@@ -41,10 +43,12 @@ public class GameController {
             String gameId = req.params(":id");
             Integer intId = Integer.parseInt(gameId);
             Game game = DBHelper.find(intId, Game.class);
+            List<Console> consoles = DBHelper.getAll(Console.class);
 
             Map<String, Object> model = new HashMap<>();
 //            String loggedInUser = LoginController.getLoggedInUserName(req, res);
 //            model.put("user", loggedInUser);
+            model.put("consoles", consoles);
             model.put("template", "templates/stock/games/edit.vtl");
             model.put("game", game);
 
@@ -93,6 +97,8 @@ public class GameController {
         }, new VelocityTemplateEngine());
 
         post ("/games/:id", (req, res) -> {
+            int consoleId = Integer.parseInt(req.queryParams("console"));
+            Console console = DBHelper.find(consoleId, Console.class);
             String gameId = req.params(":id");
             Integer intId = Integer.parseInt(gameId);
             Game game = DBHelper.find(intId, Game.class);
