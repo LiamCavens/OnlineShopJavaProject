@@ -31,6 +31,8 @@ public class MasterController {
         get("/", (Request req, Response res) -> {
             Map<String, Object> model = new HashMap<>();
             model.put("template", "templates/main.vtl");
+            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            model.put("user", loggedInUser);
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 

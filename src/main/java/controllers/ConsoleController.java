@@ -26,6 +26,8 @@ public class ConsoleController {
             List<Console> consoles = DBHelper.getAll(Console.class);
             model.put("consoles", consoles);
             model.put("template", "templates/stock/consoles/index.vtl");
+            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            model.put("user", loggedInUser);
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
