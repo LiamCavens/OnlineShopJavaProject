@@ -14,6 +14,7 @@ public class Basket {
     private int id;
     private double runningTotal;
     private ArrayList<Stock> itemsInBasket;
+    private Customer customer;
 
     public Basket() {
         this.itemsInBasket = new ArrayList<>();
@@ -68,5 +69,15 @@ public class Basket {
                     return this.runningTotal * 0.85;
                 }
         return runningTotal;
+    }
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

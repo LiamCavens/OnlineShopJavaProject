@@ -35,7 +35,9 @@ public class Seed {
         Clothing clothing3 = new Clothing("Doom T-Shirt", "BFG not included", 1, 10, 60, "https://images-na.ssl-images-amazon.com/images/I/41Ab4IQzDqL.jpg");
         Clothing clothing4 = new Clothing("Leather Kilt", "Pants needed", 1, 5, 10, "http://www.leatherexotica.com/wp-content/uploads/2015/06/LEMK-012.jpg");
 
+        defaultBasket.addItemToBasket(game2);
 
+        DBHelper.saveOrUpdate(defaultBasket);
 
         DBHelper.saveOrUpdate(game1);
         DBHelper.saveOrUpdate(game2);

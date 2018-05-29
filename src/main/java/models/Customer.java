@@ -65,7 +65,7 @@ public class Customer {
         this.age = age;
     }
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(mappedBy ="customer", cascade = CascadeType.ALL)
     public Basket getBasket() {
         return basket;
     }
