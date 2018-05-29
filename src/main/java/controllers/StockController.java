@@ -26,6 +26,8 @@ public class StockController {
             List<Stock> inventory = DBHelper.getAll(Stock.class);
             model.put("inventory", inventory);
             model.put("template", "templates/stock/index.vtl");
+            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            model.put("user", loggedInUser);
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 

@@ -1,5 +1,6 @@
 package models;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import models.stock.Stock;
 
 import javax.persistence.*;
@@ -86,4 +87,14 @@ public class Customer {
     public void addPurchase(Stock stock){
         this.purchases.add(stock);
     }
+
+
+    public boolean idFromUsername(String username){
+        Boolean result = false;
+        if (this.username == username){
+             result = true;
+        }
+        return result;
+    }
+
 }

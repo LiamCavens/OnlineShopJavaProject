@@ -24,6 +24,8 @@ public class ClothingController {
         get("/clothing", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Clothing> clothes = DBHelper.getAll(Clothing.class);
+            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            model.put("user", loggedInUser);
             model.put("clothes", clothes);
             model.put("template", "templates/stock/clothing/index.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
@@ -31,6 +33,8 @@ public class ClothingController {
 
         get ("/clothing/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
+            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            model.put("user", loggedInUser);
             model.put("template", "templates/stock/clothing/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
@@ -53,8 +57,8 @@ public class ClothingController {
             Integer intId = Integer.parseInt(clothingId);
             Clothing clothing = DBHelper.find(intId, Clothing.class);
             Map<String, Object> model = new HashMap<>();
-            //  String loggedInUser = LoginController.getLoggedInUserName(req, res);
-            //  model.put("user", loggedInUser);
+            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            model.put("user", loggedInUser);
             model.put("clothing", clothing);
             model.put("template", "templates/stock/clothing/show.vtl");
             return new ModelAndView(model, "templates/layout.vtl");

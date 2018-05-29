@@ -18,9 +18,6 @@ public class Seed {
         DBHelper.deleteAll(Game.class);
         DBHelper.deleteAll(Stock.class);
 
-        Basket defaultBasket = new Basket();
-
-
         Console console1 = new Console("Xbox One", "The world's most powerful console" , 20, 320.00, 420.00, "http://www.techdaring.com/wp-content/uploads/2016/01/xbox-one-slim.png");
         Console console2 = new Console("Playstation 4", "For the players" , 20, 300.00, 400.00, "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/PS4-Console-wDS4.png/1200px-PS4-Console-wDS4.png");
         DBHelper.saveOrUpdate(console1);
@@ -35,10 +32,6 @@ public class Seed {
         Clothing clothing3 = new Clothing("Doom T-Shirt", "BFG not included", 1, 10, 60, "https://images-na.ssl-images-amazon.com/images/I/41Ab4IQzDqL.jpg");
         Clothing clothing4 = new Clothing("Leather Kilt", "Pants needed", 1, 5, 10, "http://www.leatherexotica.com/wp-content/uploads/2015/06/LEMK-012.jpg");
 
-        defaultBasket.addItemToBasket(game2);
-
-        DBHelper.saveOrUpdate(defaultBasket);
-
         DBHelper.saveOrUpdate(game1);
         DBHelper.saveOrUpdate(game2);
         DBHelper.saveOrUpdate(game3);
@@ -48,6 +41,12 @@ public class Seed {
         DBHelper.saveOrUpdate(clothing3);
         DBHelper.saveOrUpdate(clothing4);
 
+        Basket basket = new Basket();
+        DBHelper.saveOrUpdate(basket);
+        basket.addItemToBasket(game1);
+        Customer customer = new Customer("Tupal", "Argyle Street", 25, basket);
+
+        DBHelper.saveOrUpdate(customer);
 
 
     }
