@@ -1,5 +1,9 @@
 package controllers;
 
+import db.DBCustomer;
+import db.DBHelper;
+import models.Customer;
+import models.stock.Game;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -26,6 +30,7 @@ public class LoginController {
             return null;
         }, new VelocityTemplateEngine());
 
+        // TODO check session username against all Customer.class username to get the id to redirect to /customer/:id
         get("/login", (req, res) -> {
             String username = req.session().attribute("username");
             if (username == null || username.isEmpty()){
@@ -34,7 +39,10 @@ public class LoginController {
                 return new ModelAndView(model, "templates/layout.vtl");
             }
             else {
-                res.redirect("/customer");
+                String custUsername = req.params("username");
+                Customer customer = DBCustomer.findByUsername(custUsername, Customer.class);
+                int result = customer.getId();
+                res.redirect("/customer/" + result);
                 return null;
             }
         }, new VelocityTemplateEngine());
