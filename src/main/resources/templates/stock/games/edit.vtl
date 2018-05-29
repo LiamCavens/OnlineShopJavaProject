@@ -8,13 +8,13 @@
     <input class="inputbox" type="text" name="description" required="true" id="description" value="$game.getDescription()">
 
     <label for="quantity">Quantity:</label>
-    <input type="number" name="quantity" required="true" class="inputbox" id="quantity" value="$game.getQuantity()">
+    <input type="number" min="0" name="quantity" required="true" class="inputbox" id="quantity" value="$game.getQuantity()">
 
     <label for="boughtInPrice">Buy Price:</label>
-    <input type="number" name="boughtInPrice" required="true" class="inputbox" id="boughtInPrice" value="$game.getBoughtInPrice()">
+    <input type="number" min="0" name="boughtInPrice" required="true" class="inputbox" id="boughtInPrice" value="$game.getBoughtInPrice()">
 
     <label for="sellPrice">Sell Price:</label>
-    <input type="number" name="sellPrice" required="true" class="inputbox" id="sellPrice" value="$game.getSellPrice()">
+    <input type="number" min="0" name="sellPrice" required="true" class="inputbox" id="sellPrice" value="$game.getSellPrice()">
 
     <label for="genre">Genre:</label>
     <input class="inputbox" type="text" name="genre" required="true" id="genre" value="$game.getGenre()">

@@ -12,9 +12,7 @@ public class Seed {
     public static void seedData(){
 
         DBHelper.deleteAll(Basket.class);
-
-       DBHelper.deleteAll(Console.class);
-      
+        DBHelper.deleteAll(Console.class);
         DBHelper.deleteAll(Customer.class);
         DBHelper.deleteAll(Clothing.class);
         DBHelper.deleteAll(Game.class);
@@ -44,7 +42,7 @@ public class Seed {
         DBHelper.saveOrUpdate(clothing4);
 
         Basket basket = new Basket();
-     DBHelper.saveOrUpdate(basket);
+        DBHelper.saveOrUpdate(basket);
         basket.addItemToBasket(game1);
         Customer customer = new Customer("Tupal", "Argyle Street", 25, basket);
 
