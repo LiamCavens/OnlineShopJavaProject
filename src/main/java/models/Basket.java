@@ -71,7 +71,7 @@ public class Basket {
         return runningTotal;
     }
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.PERSIST)
     @PrimaryKeyJoinColumn
     public Customer getCustomer() {
         return customer;
