@@ -42,7 +42,6 @@ public class DBBasket {
         } finally {
             session.close();
         }
-
         return basket;
     }
 }

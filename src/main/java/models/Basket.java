@@ -55,7 +55,7 @@ public class Basket {
         this.itemsInBasket = itemsInBasket;
     }
 
-    public void addItemToBasket(Stock stock){
+    public void addToBasket(Stock stock){
         this.itemsInBasket.add(stock);
         stock.setQuantity((stock.getQuantity() - 1));
     }

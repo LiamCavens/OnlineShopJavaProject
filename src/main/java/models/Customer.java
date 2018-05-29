@@ -97,4 +97,9 @@ public class Customer {
         return result;
     }
 
+    public void addItemToBasket(Stock stock){
+        this.basket.addToBasket(stock);
+        stock.setQuantity((stock.getQuantity() - 1));
+    }
+
 }

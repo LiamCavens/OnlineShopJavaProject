@@ -26,32 +26,32 @@ public class BasketTest {
 
     @Test
     public void basketHasTotal() {
-        basket.addItemToBasket(clothing5);
+        basket.addToBasket(clothing5);
         assertEquals(80, basket.getRunningTotal(), 0.1);
     }
 
     @Test
     public void threeItemsDiscount() {
-        basket.addItemToBasket(clothing4);
-        basket.addItemToBasket(clothing4);
-        basket.addItemToBasket(clothing5);
+        basket.addToBasket(clothing4);
+        basket.addToBasket(clothing4);
+        basket.addToBasket(clothing5);
         assertEquals(95, basket.getRunningTotal(), 0.1);
     }
 
     @Test
     public void fiveItemDiscount() {
-        basket.addItemToBasket(clothing);
-        basket.addItemToBasket(clothing);
-        basket.addItemToBasket(clothing);
-        basket.addItemToBasket(clothing);
-        basket.addItemToBasket(clothing);
+        basket.addToBasket(clothing);
+        basket.addToBasket(clothing);
+        basket.addToBasket(clothing);
+        basket.addToBasket(clothing);
+        basket.addToBasket(clothing);
         assertEquals(85, basket.getRunningTotal(), 0.1);
     }
 
     @Test
     public void test() {
-        basket.addItemToBasket(clothing);
-        basket.addItemToBasket(clothing2);
+        basket.addToBasket(clothing);
+        basket.addToBasket(clothing2);
         System.out.println(basket.getItemsInBasket());
     }
 }

@@ -13,6 +13,10 @@ import static spark.Spark.get;
 
 public class CustomerController {
 
+    public CustomerController(){
+        this.setupEndpoints();
+    }
+
     private void setupEndpoints() {
 
         get("/customer/:id", (req, res) -> {
