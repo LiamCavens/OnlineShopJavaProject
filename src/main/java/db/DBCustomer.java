@@ -1,5 +1,6 @@
 package db;
 
+import models.Customer;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -11,13 +12,13 @@ public class DBCustomer {
     private static Session session;
     private static Transaction transaction;
 
-    public static <T> T findByUsername(String username, Class classType){
+    public static Customer findByUsername(String username, Class classType){
         session = HibernateUtil.getSessionFactory().openSession();
-        T result = null;
+        Customer result = null;
         try {
             Criteria criteria = session.createCriteria(classType);
             criteria.add(Restrictions.eq("username", username));
-            result = (T) criteria.uniqueResult();
+            result = (Customer) criteria.uniqueResult();
         } catch (HibernateException e) {
             e.printStackTrace();
         } finally {

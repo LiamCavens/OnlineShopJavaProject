@@ -4,6 +4,8 @@ import behaviors.Sellable;
 import models.Basket;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "stock")
@@ -16,6 +18,7 @@ public abstract class Stock implements Sellable {
     private double boughtInPrice;
     private double sellPrice;
     private boolean available;
+    private Set<Basket> baskets;
 
     public Stock(String name, String description, int quantity, double boughtInPrice, double sellPrice) {
         this.name = name;
@@ -23,6 +26,7 @@ public abstract class Stock implements Sellable {
         this.quantity = quantity;
         this.boughtInPrice = boughtInPrice;
         this.sellPrice = sellPrice;
+        this.baskets = new HashSet<>();
     }
 
     public Stock() {
@@ -99,5 +103,18 @@ public abstract class Stock implements Sellable {
     public double calculateMarkUp(){
         Double result = this.getSellPrice() - this.getBoughtInPrice();
         return result;
+    }
+
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @JoinTable(name="items_in_basket",
+            inverseJoinColumns = {@JoinColumn(name = "basket_id", nullable = false, updatable = false)},
+            joinColumns = {@JoinColumn(name = "stock_id", nullable = false, updatable = false)}
+    )
+    public Set<Basket> getBaskets() {
+        return baskets;
+    }
+
+    public void setBaskets(Set<Basket> baskets) {
+        this.baskets = baskets;
     }
 }

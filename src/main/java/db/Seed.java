@@ -43,6 +43,9 @@ public class Seed {
 
 
         Basket basket = new Basket();
+
+        DBHelper.saveOrUpdate(basket);
+
         Customer customer = new Customer("Tupal", "Argyle Street", 25, basket);
 
         DBHelper.saveOrUpdate(customer);

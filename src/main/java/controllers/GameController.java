@@ -105,6 +105,7 @@ public class GameController {
             customer.addItemToBasket(gameToAdd);
 
             DBHelper.saveOrUpdate(basket);
+            DBHelper.saveOrUpdate(customer);
 
             res.redirect("/games");
             return null;
