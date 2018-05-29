@@ -38,7 +38,7 @@ public class ConsoleController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        get("/console/:id/edit", (req, res) -> {
+        get("/consoles/:id/edit", (req, res) -> {
             String consoleId = req.params(":id");
             Integer intId = Integer.parseInt(consoleId);
             Console console = DBHelper.find(intId ,Console.class);

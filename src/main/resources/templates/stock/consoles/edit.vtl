@@ -1,6 +1,6 @@
 <h1>Edit Game</h1>
 
-<form action="/console/$console.getId()" method="post">
+<form action="/consoles/$console.getId()" method="post">
     <label for="name">Console Name:</label>
     <input class="inputbox" type="text" name="name" required="true" id="name" value="$console.getName()">
 
@@ -8,13 +8,13 @@
     <input class="inputbox" type="text" name="description" required="true" id="description" value="$console.getDescription()">
 
     <label for="quantity">Quantity:</label>
-    <input type="number" name="quantity" required="true" class="inputbox" id="quantity" value="$console.getQuantity()">
+    <input type="number" min="0" name="quantity" required="true" class="inputbox" id="quantity" value="$console.getQuantity()">
 
     <label for="boughtInPrice">Buy Price:</label>
-    <input type="number" name="boughtInPrice" required="true" class="inputbox" id="boughtInPrice" value="$console.getBoughtInPrice()">
+    <input type="number" min="0" name="boughtInPrice" required="true" class="inputbox" id="boughtInPrice" value="$console.getBoughtInPrice()">
 
     <label for="sellPrice">Sell Price:</label>
-    <input type="number" name="sellPrice" required="true" class="inputbox" id="sellPrice" value="$console.getSellPrice()">
+    <input type="number" min="0" name="sellPrice" required="true" class="inputbox" id="sellPrice" value="$console.getSellPrice()">
 
     <label for="image">Console Image URL:</label>
     <input class="inputbox" type="text" name="image" required="true" id="image" value="$console.getImage()">
