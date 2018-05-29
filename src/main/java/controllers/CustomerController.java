@@ -13,6 +13,10 @@ import static spark.Spark.get;
 
 public class CustomerController {
 
+    public CustomerController(){
+        this.setupEndpoints();
+    }
+
     private void setupEndpoints() {
 
         get("/customer/:id", (req, res) -> {
@@ -21,9 +25,9 @@ public class CustomerController {
             Customer customer = DBHelper.find(intId, Customer.class);
 
             Map<String, Object> model = new HashMap<>();
-
-            String loggedInUser = LoginController.getLoggedInUserName(req, res);
-            model.put("user", loggedInUser);
+//
+//            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+//            model.put("user", loggedInUser);
 
             model.put("customer", customer);
             model.put("template", "templates/customer/show.vtl");
