@@ -14,7 +14,6 @@ import static spark.Spark.get;
 
 public class StockController {
 
-
     public StockController() {
         this.setupEndpoints();
     }
