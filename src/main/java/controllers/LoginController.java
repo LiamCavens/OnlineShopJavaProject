@@ -39,8 +39,8 @@ public class LoginController {
                 return new ModelAndView(model, "templates/layout.vtl");
             }
             else {
-                String custUsername = req.params("username");
-                Customer customer = DBCustomer.findByUsername(custUsername, Customer.class);
+
+                Customer customer = DBCustomer.findByUsername(username, Customer.class);
                 int result = customer.getId();
                 res.redirect("/customer/" + result);
                 return null;
