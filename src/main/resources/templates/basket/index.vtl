@@ -2,8 +2,11 @@
 
 <div class="product-container">
 
-    #foreach ($stock in $itemsInBasket)
-        <p>$stock.getName()</p>
+    <p>$customer.getUsername()</p>
+    <p>$customer.getBasket().getItemsInBasket().size()</p>
+
+    #foreach ($item in $customer.getBasket().getItemsInBasket())
+        <p>$item.getName()</p>
     #end
 
 

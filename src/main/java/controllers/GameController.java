@@ -111,10 +111,8 @@ public class GameController {
 
             Customer customer = DBCustomer.findByUsername(req.session().attribute("username"),Customer.class);
 
-            Basket basket = DBBasket.getbasketForCustomer(customer);
             customer.addItemToBasket(gameToAdd);
 
-            DBHelper.saveOrUpdate(basket);
             DBHelper.saveOrUpdate(customer);
 
             res.redirect("/games");
