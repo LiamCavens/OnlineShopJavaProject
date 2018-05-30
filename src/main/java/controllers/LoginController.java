@@ -85,4 +85,15 @@ public class LoginController {
         }
         return username;
     }
+
+    public static Boolean userExists(Request req, Response res) {
+        Boolean result = false;
+        String username = req.session().attribute("username");
+        Customer customer = DBCustomer.findByUsername(username, Customer.class);
+        if (customer.getId() != 0){
+            result = true;
+            res.redirect("/login");
+        }
+        return result;
+    }
 }
