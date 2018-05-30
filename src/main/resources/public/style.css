@@ -106,6 +106,13 @@ h3 {
     width: 70px;
 }
 
+.product-resize-for-table {
+    min-height: 60px;
+    min-width: 40px;
+    max-height: 60px;
+    max-width: 50px;
+}
+
 
 .product-resize-for-show {
     height: 200px;
@@ -160,6 +167,34 @@ h3 {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
+}
+
+.btn-delete {
+  background: #169c16;
+  background-image: -webkit-linear-gradient(top, #169c16, #187a24);
+  background-image: -moz-linear-gradient(top, #169c16, #187a24);
+  background-image: -ms-linear-gradient(top, #169c16, #187a24);
+  background-image: -o-linear-gradient(top, #169c16, #187a24);
+  background-image: linear-gradient(to bottom, #169c16, #187a24);
+  -webkit-border-radius: 20;
+  -moz-border-radius: 20;
+  border-radius: 20px;
+  text-shadow: 0px 1px 3px #666666;
+  font-family: Georgia;
+  color: #ffffff;
+  font-size: 10px;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+}
+
+.btn-delete:hover {
+  background: #f01f3b;
+  background-image: -webkit-linear-gradient(top, #f01f3b, #b02749);
+  background-image: -moz-linear-gradient(top, #f01f3b, #b02749);
+  background-image: -ms-linear-gradient(top, #f01f3b, #b02749);
+  background-image: -o-linear-gradient(top, #f01f3b, #b02749);
+  background-image: linear-gradient(to bottom, #f01f3b, #b02749);
+  text-decoration: none;
 }
 
 
