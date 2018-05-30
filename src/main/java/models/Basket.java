@@ -33,17 +33,20 @@ public class Basket {
 
     @Column(name= "running_total")
     public double getRunningTotal() {
-        for(Stock stock : itemsInBasket){
-            this.runningTotal += stock.getSellPrice();
-        }
-        if (itemsInBasket.size() <= 2) {
-            return runningTotal;
-        }
-        return applyDiscount();
+        return runningTotal;
     }
 
     public void setRunningTotal(double runningTotal) {
         this.runningTotal = runningTotal;
+    }
+
+
+    public double calculateRunningTotal(){
+        double total = 0;
+        for(Stock stock : this.itemsInBasket){
+            total += stock.getSellPrice();
+        }
+        return total;
     }
 
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
