@@ -205,4 +205,23 @@ h3 {
         justify-content: space-evenly;
 }
 
+.user-log {
+    font-size: 10px;
+    font-family: 'Bungee', cursive;
+    margin: 0 0 0 2%;
+}
 
+.flash {
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    animation-name: flash;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+}
+
+@keyframes flash {
+    from {color: #6B6D76;}
+    to {color: #81E979;}
+}
