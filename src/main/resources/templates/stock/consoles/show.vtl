@@ -1,0 +1,33 @@
+<h1 class="show-title">$console.getName()</h1>
+
+<div class="show-page">
+<div class="show-cover">
+
+    <img class="product-resize-for-show" src="$console.getImage()" alt="">
+</div>
+
+    <div class="add-button">
+    <form action="/console/$console.getId()/buy" method="post">
+        <input class="button" type="submit" value="Add To Basket">
+    </form>
+    </div>
+
+
+    <div class="show-info">
+    <p>$console.getName()</p>
+    <div class="display-price">
+        <p>Price: $console.getSellPrice()</p>
+    </div>
+    <div class="description-box">
+        <h3>Description</h3>
+        <p>$console.getDescription()</p>
+    </div>
+    <button>
+        <a href="/consoles/$console.getId()/edit">Edit Console</a>
+    </button>
+    <form action="/consoles/$console.getId()/delete" method="post" >
+        <input class="button" type="submit" value="Delete">
+    </form>
+
+</div>
+</div>

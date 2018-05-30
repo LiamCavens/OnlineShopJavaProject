@@ -1,5 +1,10 @@
-<form action="/login" method="post">
-    <label for="username">Your name</label>
-    <input type="text" name="username" id="username">
-    <button type="submit">Submit name</button>
-</form>
+<div class="btn-container">
+    <div class="login-page">
+        <form action="/login" method="post">
+            <label for="username">Your name</label>
+            <input type="text" pattern="[^()/><\][\\\x22,;|]+" name="username" id="username">
+            <button type="submit">Submit name</button>
+        </form>
+        <p>Do not have an account? <a href="/login/signup">Sign Up</a></p>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<h1 class="show-title">$clothing.getName()</h1>
+
+<div class="show-page">
+<div class="show-cover">
+    <img class="product-resize-for-show" src="$clothing.getImage()" alt="">
+</div>
+
+    <div class="add-button">
+        <form action="/clothing/$clothing.getId()/buy" method="post">
+            <input class="button" type="submit" value="Add To Basket">
+        </form>
+    </div>
+<div class="show-info">
+    <p>$clothing.getName()</p>
+    <div class="display-price">
+        <p>Price: $clothing.getSellPrice()</p>
+    </div>
+    <div class="description-box">
+        <h3>Description</h3>
+        <p>$clothing.getDescription()</p>
+    </div>
+
+</div>
+</div>

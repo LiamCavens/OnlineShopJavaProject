@@ -1,0 +1,41 @@
+<h1 class="show-title">$game.getName()</h1>
+
+<div class="show-page">
+    <div class="btn-container">
+    <button>
+    <a href="/games/$game.getId()/edit">Edit Game</a>
+    </button>
+
+        <form action="/games/$game.getId()/delete" method="post" >
+            <input class="button" type="submit" value="Delete Game">
+        </form>
+    </div>
+
+<div class="show-cover">
+    <img class="product-resize-for-show" src="$game.getImage()" alt="">
+
+
+
+</div>
+
+    <form action="/games/$game.getId()/buy" method="post">
+        <input class="button" type="submit" value="Add To Basket">
+    </form>
+
+<div class="show-info">
+    <p>Title : $game.getName()</p>
+    <p>Genre : $game.getGenre()</p>
+    <div class="display-price">
+        <p>Price: $game.getSellPrice()</p>
+    </div>
+
+    <div class="description-box">
+        <h3>Description</h3>
+        <p>$game.getDescription()</p>
+    </div>
+
+    <div class="trailer-box">
+        $game.getGameTrailer()
+    </div>
+</div>
+</div>

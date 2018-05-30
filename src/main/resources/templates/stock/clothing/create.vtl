@@ -1,0 +1,25 @@
+<h1>New Clothing</h1>
+
+<form action="/clothing" method="post">
+    <label for="name">Clothing Name:</label>
+    <input class="inputbox" type="text" name="name" required="true" id="name">
+
+    <label for="description">Description:</label>
+    <input class="inputbox" type="text" name="description" required="true" id="description">
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" name="quantity" required="true" class="inputbox" id="quantity">
+
+    <label for="boughtInPrice">Buy Price:</label>
+    <input type="number" name="boughtInPrice" required="true" class="inputbox" id="boughtInPrice">
+
+    <label for="sellPrice">Sell Price:</label>
+    <input type="number" name="sellPrice" required="true" class="inputbox" id="sellPrice">
+
+    <label for="image">Console Image URL:</label>
+    <input class="inputbox" type="text" name="image" required="true" id="image">
+
+
+    <input type="submit" value="Save" class="button">
+</form>
+<a href="/consoles" class="button center">Cancel</a>

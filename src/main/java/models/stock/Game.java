@@ -1,4 +1,4 @@
-package models.Stock;
+package models.stock;
 
 import behaviors.Sellable;
 import models.Customer;
@@ -7,21 +7,25 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import javax.persistence.*;
+
 @Entity
 @Table(name = "games")
 public class Game extends Stock {
 
-    private GameGenre genre;
+    private String genre;
+    private Console console;
     private String gameKey;
-    private String gameImage;
+    private String image;
     private String gameTrailer;
     private int pegiRating;
 
-    public Game(String name, String description, int quantity, double boughtInPrice, double sellPrice, GameGenre genre, String gameKey) {
+    public Game(String name, String description, int quantity, double boughtInPrice, double sellPrice, String genre, Console console, String gameKey, String image, String gameTrailer) {
+
         super(name, description, quantity, boughtInPrice, sellPrice);
         this.genre = genre;
         this.gameKey = gameKey;
-        this.gameImage = gameImage;
+        this.image = image;
         this.gameTrailer = gameTrailer;
         this.pegiRating = pegiRating;
     }
@@ -39,12 +43,12 @@ public class Game extends Stock {
     }
 
     @Column(name = "game_image")
-    public String getGameImage() {
-        return gameImage;
+    public String getImage() {
+        return image;
     }
 
-    public void setGameImage(String gameImage) {
-        this.gameImage = gameImage;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     @Column(name = "game_trailer")
@@ -57,11 +61,11 @@ public class Game extends Stock {
     }
 
     @Column(name = "genre")
-    public GameGenre getGenre() {
+    public String getGenre() {
         return genre;
     }
 
-    public void setGenre(GameGenre genre) {
+    public void setGenre(String genre) {
         this.genre = genre;
     }
 
@@ -77,9 +81,20 @@ public class Game extends Stock {
 
     public boolean checkPegiRating(Customer customer1) {
         boolean result = true;
-        if (customer1.getAge() < this.getPegiRating()){
+        if (customer1.getAge() < this.getPegiRating()) {
             result = false;
         }
         return result;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "console_id")
+    public Console getConsole() {
+        return console;
+    }
+
+    public void setConsole(Console console) {
+        this.console = console;
+
     }
 }

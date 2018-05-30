@@ -1,0 +1,27 @@
+<h1>Edit Game</h1>
+
+<form action="/consoles/$console.getId()" method="post">
+    <label for="name">Console Name:</label>
+    <input class="inputbox" type="text" name="name" required="true" id="name" value="$console.getName()">
+
+    <label for="description">Description:</label>
+    <input class="inputbox" type="text" name="description" required="true" id="description" value="$console.getDescription()">
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" min="0" name="quantity" required="true" class="inputbox" id="quantity" value="$console.getQuantity()">
+
+    <label for="boughtInPrice">Buy Price:</label>
+    <input type="number" min="0" name="boughtInPrice" required="true" class="inputbox" id="boughtInPrice" value="$console.getBoughtInPrice()">
+
+    <label for="sellPrice">Sell Price:</label>
+    <input type="number" min="0" name="sellPrice" required="true" class="inputbox" id="sellPrice" value="$console.getSellPrice()">
+
+    <label for="image">Console Image URL:</label>
+    <input class="inputbox" type="text" name="image" required="true" id="image" value="$console.getImage()">
+
+
+    <input type="submit" value="Save" class="button">
+</form>
+<div class="btn-container">
+<a href="/consoles/$console.getId()" class="button center">Cancel</a>
+</div>

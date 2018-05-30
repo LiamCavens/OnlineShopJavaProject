@@ -1,10 +1,11 @@
 package models;
 
-import models.Stock.Stock;
+import com.sun.org.apache.xpath.internal.operations.Bool;
+import models.stock.Stock;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Set;
 
 @Entity
 @Table(name = "customers")
@@ -66,6 +67,8 @@ public class Customer {
         this.age = age;
     }
 
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     public Basket getBasket() {
         return basket;
     }
@@ -74,6 +77,7 @@ public class Customer {
         this.basket = basket;
     }
 
+    @Column(name = "purchases")
     public ArrayList<Stock> getPurchases() {
         return purchases;
     }
@@ -85,4 +89,27 @@ public class Customer {
     public void addPurchase(Stock stock){
         this.purchases.add(stock);
     }
+
+
+    public boolean idFromUsername(String username){
+        Boolean result = false;
+        if (this.username == username){
+             result = true;
+        }
+        return result;
+    }
+
+    public void addItemToBasket(Stock stock){
+        this.basket.addToBasket(stock);
+        stock.setQuantity((stock.getQuantity() - 1));
+    }
+
+    public void removeItemFromBasket(Stock stock){
+        for (Stock item : this.basket.getItemsInBasket()){
+            if (stock.getName().equals(item.getName())){
+                this.basket.removeFromBasket(item);
+            }
+        }
+    }
+
 }

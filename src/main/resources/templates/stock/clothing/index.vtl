@@ -1,0 +1,28 @@
+<h1>Clothing</h1>
+
+<div class="btn-container">
+    <button>
+        <a href="/clothing/new">Add Clothing</a>
+    </button>
+</div>
+
+<div class="product-container">
+    #foreach ($clothing in $clothes)
+    <a href="/clothing/$clothing.getId()">
+        <div class="product-list-show-cover">
+            <img class="product-resize-for-list" src="$clothing.getImage()" alt="">
+    </a>
+
+    <p><a class="product-text-link" href="/clothing/$clothing.getId()">$clothing.getName()</a></p>
+    <div class="display-price">
+        <p>Price: $clothing.getSellPrice()</p>
+    </div>
+    <div class="add-button">
+        <form action="/clothing/$clothing.getId()/buy" method="post">
+            <input class="button" type="submit" value="Add To Basket">
+        </form>
+    </div>
+
+</div>
+#end
+</div>

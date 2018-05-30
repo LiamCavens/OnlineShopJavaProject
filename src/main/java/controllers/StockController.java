@@ -1,8 +1,10 @@
 package controllers;
 
+import db.DBCustomer;
 import db.DBHelper;
-import models.Stock.Game;
-import models.Stock.Stock;
+import models.Customer;
+import models.stock.Clothing;
+import models.stock.Stock;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 
@@ -14,18 +16,22 @@ import static spark.Spark.get;
 
 public class StockController {
 
-    public StockController(){
+    public StockController() {
         this.setupEndpoints();
     }
 
     private void setupEndpoints() {
 
-        get("/games", (req, res) -> {
+        get("/stock", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            List<Game> games = DBHelper.getAll(Game.class);
-            model.put("games", games);
+            List<Stock> stock = DBHelper.getAll(Stock.class);
+            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            Customer foundCustomer = DBCustomer.findByUsername(loggedInUser, Customer.class);
+            model.put("customer", foundCustomer);
+            model.put("stock", stock);
             model.put("template", "templates/stock/index.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
+
     }
 }

@@ -1,9 +1,11 @@
 package models;
 
-import models.Stock.Stock;
+import models.stock.Stock;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -12,10 +14,10 @@ public class Basket {
 
     private int id;
     private double runningTotal;
-    private ArrayList<Stock> itemsInBasket;
+    private Set<Stock> itemsInBasket;
 
     public Basket() {
-        this.itemsInBasket = new ArrayList<>();
+        this.itemsInBasket = new HashSet<>();
     }
 
     @Id
@@ -31,30 +33,41 @@ public class Basket {
 
     @Column(name= "running_total")
     public double getRunningTotal() {
-        for(Stock stock : itemsInBasket){
-            this.runningTotal += stock.getSellPrice();
-        }
-        if (itemsInBasket.size() <= 2) {
-            return runningTotal;
-        }
-        return applyDiscount();
+        return runningTotal;
     }
 
     public void setRunningTotal(double runningTotal) {
         this.runningTotal = runningTotal;
     }
 
-    @OneToMany(mappedBy = "basket")
-    public ArrayList<Stock> getItemsInBasket() {
+
+    public double calculateRunningTotal(){
+        double total = 0;
+        for(Stock stock : this.itemsInBasket){
+            total += stock.getSellPrice();
+        }
+        return total;
+    }
+
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinTable(name="items_in_basket",
+            inverseJoinColumns = {@JoinColumn(name = "stock_id", nullable = false, updatable = false)},
+            joinColumns = {@JoinColumn(name = "basket_id", nullable = false, updatable = false)}
+    )
+    public Set<Stock> getItemsInBasket() {
         return itemsInBasket;
     }
 
-    public void setItemsInBasket(ArrayList<Stock> itemsInBasket) {
+    public void setItemsInBasket(Set<Stock> itemsInBasket) {
         this.itemsInBasket = itemsInBasket;
     }
 
-    public void addItemToBasket(Stock stock){
+    public void addToBasket(Stock stock){
         this.itemsInBasket.add(stock);
+    }
+
+    public void removeFromBasket(Stock stock){
+        this.itemsInBasket.remove(stock);
     }
 
     public double applyDiscount(){

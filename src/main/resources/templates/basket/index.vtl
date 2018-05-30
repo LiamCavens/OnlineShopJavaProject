@@ -1,0 +1,30 @@
+<h1>Basket</h1>
+
+<div class="basket-show">
+
+    <p>$customer.getUsername()</p>
+    <p>$customer.getBasket().getItemsInBasket().size()</p>
+
+</div>
+
+    <div class="basket-list">
+    <table>
+        <tr>
+            <th>Item Image</th>
+            <th>Item Name</th>
+            <th>Item Price</th>
+            <th>Remove Item</th>
+        </tr>
+    #foreach ($item in $customer.getBasket().getItemsInBasket())
+        <td>
+            <td><img class="product-resize-for-table" src="$item.getImage()" alt=""></td>
+            <td><p>$item.getName()</p></td>
+            <td><p>£$item.getSellPrice()</p></td>
+            <td><form action="/basket/$customer.getId()/$item.getId()/delete" method="post">
+                <input class="btn-delete" type="submit" value="delete" />
+            </form></td>
+        </tr>
+    #end
+    </table>
+    </div>
+

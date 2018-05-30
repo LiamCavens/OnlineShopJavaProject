@@ -1,0 +1,43 @@
+<h1>New Game</h1>
+<div class="vertical-form">
+<form action="/games" method="post">
+    <label for="name">Game Name:</label>
+    <input class="inputbox" type="text" name="name" required="true" id="name">
+
+    <label for="description">Description:</label>
+    <input class="inputbox" type="text" name="description" required="true" id="description">
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" min="0" name="quantity" required="true" class="inputbox" id="quantity">
+
+    <label for="boughtInPrice">Buy Price:</label>
+    <input type="number" min="0" name="boughtInPrice" required="true" class="inputbox" id="boughtInPrice">
+
+    <label for="sellPrice">Sell Price:</label>
+    <input type="number" min="0" name="sellPrice" required="true" class="inputbox" id="sellPrice">
+
+    <label for="genre">Genre:</label>
+    <input class="inputbox" min="0" type="text" name="genre" required="true" id="genre">
+
+    <label for="console">Console:</label>
+    <select id="console" name="console">
+        #foreach( $console in $consoles )
+        <option value="$console.getId()">$console.getName()</option>
+        #end
+    </select>
+
+    <label for="gameKey">Game Key:</label>
+    <input class="inputbox" type="text" name="gameKey" required="true" id="gameKey">
+
+    <label for="image">Game Image URL:</label>
+    <input class="inputbox" type="text" name="image" required="true" id="image">
+
+    <label for="gameTrailer">Game Trailer URL:</label>
+    <input class="inputbox" type="text" name="gameTrailer" required="true" id="gameTrailer">
+
+
+
+    <input type="submit" value="Save" class="button">
+</form>
+<a href="/games" class="button center">Cancel</a>
+</div>

@@ -1,7 +1,9 @@
 package controllers;
 
+import db.DBCustomer;
+import db.DBHelper;
 import db.Seed;
-import models.Basket;
+import models.Customer;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -23,12 +25,18 @@ public class MasterController {
         LoginController loginController = new LoginController();
         BasketController basketController = new BasketController();
         CustomerController customerController = new CustomerController();
-        ShopController shopController = new ShopController();
+        GameController gameController = new GameController();
+        ConsoleController consoleController = new ConsoleController();
+        ClothingController clothingController = new ClothingController();
         StockController stockController = new StockController();
 
         get("/", (Request req, Response res) -> {
             Map<String, Object> model = new HashMap<>();
             model.put("template", "templates/main.vtl");
+            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            Customer foundCustomer = DBCustomer.findByUsername(loggedInUser, Customer.class);
+            model.put("customer", foundCustomer);
+
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
