@@ -5,7 +5,15 @@
 
     <img class="product-resize-for-show" src="$console.getImage()" alt="">
 </div>
-<div class="show-info">
+
+    <div class="add-button">
+    <form action="/console/$console.getId()/buy" method="post">
+        <input class="button" type="submit" value="Add To Basket">
+    </form>
+    </div>
+
+
+    <div class="show-info">
     <p>$console.getName()</p>
     <div class="display-price">
         <p>Price: $console.getSellPrice()</p>

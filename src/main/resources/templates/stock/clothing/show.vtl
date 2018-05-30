@@ -4,6 +4,12 @@
 <div class="show-cover">
     <img class="product-resize-for-show" src="$clothing.getImage()" alt="">
 </div>
+
+    <div class="add-button">
+        <form action="/clothing/$clothing.getId()/buy" method="post">
+            <input class="button" type="submit" value="Add To Basket">
+        </form>
+    </div>
 <div class="show-info">
     <p>$clothing.getName()</p>
     <div class="display-price">

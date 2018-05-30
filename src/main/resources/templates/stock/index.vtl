@@ -10,6 +10,11 @@
     <div class="display-price">
         <p>Price: $stock.getSellPrice()</p>
     </div>
+    <div class="index-add-button">
+        <form action="/stock/$stock.getId()/buy" method="post">
+            <input class="button" type="submit" value="Add To Basket">
+        </form>
+    </div>
 </div>
 
 #end
