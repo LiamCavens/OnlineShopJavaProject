@@ -1,6 +1,8 @@
 package controllers;
 
+import db.DBCustomer;
 import db.DBHelper;
+import models.Customer;
 import models.stock.Clothing;
 import models.stock.Stock;
 import spark.ModelAndView;
@@ -23,10 +25,11 @@ public class StockController {
         get("/stock", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Stock> inventory = DBHelper.getAll(Stock.class);
+            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            Customer foundCustomer = DBCustomer.findByUsername(loggedInUser, Customer.class);
+            model.put("customer", foundCustomer);
             model.put("inventory", inventory);
             model.put("template", "templates/stock/index.vtl");
-            String loggedInUser = LoginController.getLoggedInUserName(req, res);
-            model.put("user", loggedInUser);
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 

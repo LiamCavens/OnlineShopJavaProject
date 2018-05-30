@@ -29,6 +29,8 @@ public class GameController {
             Map<String, Object> model = new HashMap<>();
             List<Game> games = DBHelper.getAll(Game.class);
             String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            Customer foundCustomer = DBCustomer.findByUsername(loggedInUser, Customer.class);
+            model.put("customer", foundCustomer);
             model.put("user", loggedInUser);
             model.put("games", games);
             model.put("template", "templates/stock/games/index.vtl");
@@ -37,6 +39,9 @@ public class GameController {
 
         get ("/games/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
+            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            Customer foundCustomer = DBCustomer.findByUsername(loggedInUser, Customer.class);
+            model.put("customer", foundCustomer);
             List<Console> consoles = DBHelper.getAll(Console.class);
             model.put("consoles", consoles);
             model.put("template", "templates/stock/games/create.vtl");
@@ -52,8 +57,10 @@ public class GameController {
             List<Console> consoles = DBHelper.getAll(Console.class);
 
             Map<String, Object> model = new HashMap<>();
-//            String loggedInUser = LoginController.getLoggedInUserName(req, res);
-//            model.put("user", loggedInUser);
+            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            Customer foundCustomer = DBCustomer.findByUsername(loggedInUser, Customer.class);
+            model.put("customer", foundCustomer);
+
             model.put("consoles", consoles);
             model.put("template", "templates/stock/games/edit.vtl");
             model.put("game", game);
@@ -66,9 +73,12 @@ public class GameController {
             Integer intId = Integer.parseInt(gameId);
             Game game = DBHelper.find(intId, Game.class);
 
+
             Map<String, Object> model = new HashMap<>();
-          //  String loggedInUser = LoginController.getLoggedInUserName(req, res);
-          //  model.put("user", loggedInUser);
+            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            Customer foundCustomer = DBCustomer.findByUsername(loggedInUser, Customer.class);
+            model.put("customer", foundCustomer);
+
             model.put("game", game);
             model.put("template", "templates/stock/games/show.vtl");
 
