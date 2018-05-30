@@ -20,7 +20,7 @@
             <td><img class="product-resize-for-table" src="$item.getImage()" alt=""></td>
             <td><p>$item.getName()</p></td>
             <td><p>£$item.getSellPrice()</p></td>
-            <td><form action="/basket/$customer.getId()/delete" method="post">
+            <td><form action="/basket/$customer.getId()/$item.getId()/delete" method="post">
                 <input class="btn-delete" type="submit" value="delete" />
             </form></td>
         </tr>

@@ -63,6 +63,10 @@ public class Basket {
         this.itemsInBasket.add(stock);
     }
 
+    public void removeFromBasket(Stock stock){
+        this.itemsInBasket.remove(stock);
+    }
+
     public double applyDiscount(){
         if (itemsInBasket.size() == 3){
             return this.runningTotal * 0.95;

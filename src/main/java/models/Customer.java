@@ -104,4 +104,12 @@ public class Customer {
         stock.setQuantity((stock.getQuantity() - 1));
     }
 
+    public void removeItemFromBasket(Stock stock){
+        for (Stock item : this.basket.getItemsInBasket()){
+            if (stock.getName().equals(item.getName())){
+                this.basket.removeFromBasket(item);
+            }
+        }
+    }
+
 }
