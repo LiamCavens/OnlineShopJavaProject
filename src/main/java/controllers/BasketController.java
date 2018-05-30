@@ -6,6 +6,7 @@ import db.DBHelper;
 import models.Basket;
 import models.Customer;
 import models.stock.Clothing;
+import models.stock.Game;
 import models.stock.Stock;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
@@ -41,6 +42,22 @@ public class BasketController {
             model.put("template", "templates/basket/index.vtl");
             return modelAndView(model, "templates/layout.vtl");
         },  new VelocityTemplateEngine());
+
+        post("basket/:customer_id/:stock_id/delete", (req, res) -> {
+
+            int customerId = Integer.parseInt(req.params(":customer_id"));
+            Customer customer = DBHelper.find(customerId ,Customer.class);
+
+            int itemId = Integer.parseInt(req.params(":stock_id"));
+            Stock itemToRemoveFromBasket = DBHelper.find(itemId, Stock.class);
+
+            customer.removeItemFromBasket(itemToRemoveFromBasket);
+
+            DBHelper.saveOrUpdate(customer);
+
+            res.redirect("/basket/" + customerId);
+            return null;
+        });
 
     }
 }
