@@ -61,7 +61,6 @@ public class Basket {
 
     public void addToBasket(Stock stock){
         this.itemsInBasket.add(stock);
-
     }
 
     public double applyDiscount(){
