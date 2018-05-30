@@ -24,11 +24,11 @@ public class StockController {
 
         get("/stock", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            List<Stock> inventory = DBHelper.getAll(Stock.class);
+            List<Stock> stock = DBHelper.getAll(Stock.class);
             String loggedInUser = LoginController.getLoggedInUserName(req, res);
             Customer foundCustomer = DBCustomer.findByUsername(loggedInUser, Customer.class);
             model.put("customer", foundCustomer);
-            model.put("inventory", inventory);
+            model.put("stock", stock);
             model.put("template", "templates/stock/index.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
