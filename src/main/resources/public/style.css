@@ -197,5 +197,12 @@ h3 {
   text-decoration: none;
 }
 
+.display-price {
+        padding: auto;
+        margin: 0% 5%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+}
 
 
