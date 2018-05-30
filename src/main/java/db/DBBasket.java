@@ -34,15 +34,14 @@ public class DBBasket {
         Basket basket = null;
         try {
             Criteria criteria = session.createCriteria(Basket.class);
-            criteria.createAlias("customer", "cust");
-            criteria.add(Restrictions.eq("cust.id", customer.getId()));
+
+            criteria.add(Restrictions.eq("id", customer.getBasket().getId()));
             basket = (Basket)criteria.uniqueResult();
         } catch (HibernateException e) {
             e.printStackTrace();
         } finally {
             session.close();
         }
-
         return basket;
     }
 }

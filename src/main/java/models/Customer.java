@@ -2,6 +2,7 @@ package models;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import models.stock.Stock;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -66,7 +67,8 @@ public class Customer {
         this.age = age;
     }
 
-    @OneToOne(mappedBy ="customer", cascade = CascadeType.PERSIST)
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @OneToOne(cascade = CascadeType.PERSIST)
     public Basket getBasket() {
         return basket;
     }
@@ -95,6 +97,11 @@ public class Customer {
              result = true;
         }
         return result;
+    }
+
+    public void addItemToBasket(Stock stock){
+        this.basket.addToBasket(stock);
+        stock.setQuantity((stock.getQuantity() - 1));
     }
 
 }

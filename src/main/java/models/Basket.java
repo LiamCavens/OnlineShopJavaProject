@@ -1,6 +1,7 @@
 package models;
 
 import models.stock.Stock;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -14,7 +15,6 @@ public class Basket {
     private int id;
     private double runningTotal;
     private ArrayList<Stock> itemsInBasket;
-    private Customer customer;
 
     public Basket() {
         this.itemsInBasket = new ArrayList<>();
@@ -46,7 +46,11 @@ public class Basket {
         this.runningTotal = runningTotal;
     }
 
-    @Column(name = "items_in_basket")
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @JoinTable(name="items_in_basket",
+            inverseJoinColumns = {@JoinColumn(name = "stock_id", nullable = false, updatable = false)},
+            joinColumns = {@JoinColumn(name = "basket_id", nullable = false, updatable = false)}
+    )
     public ArrayList<Stock> getItemsInBasket() {
         return itemsInBasket;
     }
@@ -55,9 +59,9 @@ public class Basket {
         this.itemsInBasket = itemsInBasket;
     }
 
-    public void addItemToBasket(Stock stock){
+    public void addToBasket(Stock stock){
         this.itemsInBasket.add(stock);
-        stock.setQuantity((stock.getQuantity() - 1));
+
     }
 
     public double applyDiscount(){
@@ -69,15 +73,5 @@ public class Basket {
                     return this.runningTotal * 0.85;
                 }
         return runningTotal;
-    }
-
-    @OneToOne(cascade = CascadeType.PERSIST)
-    @PrimaryKeyJoinColumn
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
     }
 }

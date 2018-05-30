@@ -1,6 +1,10 @@
 package controllers;
 
+import db.DBBasket;
+import db.DBCustomer;
 import db.DBHelper;
+import models.Basket;
+import models.Customer;
 import models.stock.Console;
 import models.stock.Game;
 import spark.ModelAndView;
@@ -88,6 +92,24 @@ public class GameController {
             DBHelper.saveOrUpdate(game);
             res.redirect("/games");
             return null;
+        }, new VelocityTemplateEngine());
+
+        post("/games/:id/buy", (req, res) -> {
+
+            int id = Integer.parseInt(req.params(":id"));
+            Game gameToAdd = DBHelper.find(id, Game.class);
+
+            Customer customer = DBCustomer.findByUsername(req.session().attribute("username"),Customer.class);
+
+            Basket basket = DBBasket.getbasketForCustomer(customer);
+            customer.addItemToBasket(gameToAdd);
+
+            DBHelper.saveOrUpdate(basket);
+            DBHelper.saveOrUpdate(customer);
+
+            res.redirect("/games");
+            return null;
+
         }, new VelocityTemplateEngine());
 
         post ("/games/:id/delete", (req, res) -> {
