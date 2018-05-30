@@ -19,6 +19,7 @@ public class DBBasket {
         List<Stock> results = null;
         try {
             Criteria criteria = session.createCriteria(Stock.class);
+            criteria.createAlias("basket.id", "customer.id");
             criteria.add(Restrictions.eq("basket", basket));
             results = criteria.list();
         } catch (HibernateException e) {

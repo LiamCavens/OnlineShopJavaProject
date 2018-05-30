@@ -14,10 +14,10 @@ public class Basket {
 
     private int id;
     private double runningTotal;
-    private ArrayList<Stock> itemsInBasket;
+    private Set<Stock> itemsInBasket;
 
     public Basket() {
-        this.itemsInBasket = new ArrayList<>();
+        this.itemsInBasket = new HashSet<>();
     }
 
     @Id
@@ -46,16 +46,16 @@ public class Basket {
         this.runningTotal = runningTotal;
     }
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinTable(name="items_in_basket",
             inverseJoinColumns = {@JoinColumn(name = "stock_id", nullable = false, updatable = false)},
             joinColumns = {@JoinColumn(name = "basket_id", nullable = false, updatable = false)}
     )
-    public ArrayList<Stock> getItemsInBasket() {
+    public Set<Stock> getItemsInBasket() {
         return itemsInBasket;
     }
 
-    public void setItemsInBasket(ArrayList<Stock> itemsInBasket) {
+    public void setItemsInBasket(Set<Stock> itemsInBasket) {
         this.itemsInBasket = itemsInBasket;
     }
 

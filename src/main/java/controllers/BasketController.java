@@ -1,6 +1,7 @@
 package controllers;
 
 import db.DBBasket;
+import db.DBCustomer;
 import db.DBHelper;
 import models.Basket;
 import models.Customer;
@@ -33,6 +34,9 @@ public class BasketController {
 
             HashMap<String, Object> model = new HashMap<>();
             List<Stock> itemsInBasket = DBBasket.getStockFromBasket(basket);
+            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            Customer foundCustomer = DBCustomer.findByUsername(loggedInUser, Customer.class);
+            model.put("customer", foundCustomer);
             model.put("itemsInBasket", itemsInBasket);
             model.put("template", "templates/basket/index.vtl");
             return modelAndView(model, "templates/layout.vtl");

@@ -1,5 +1,6 @@
 package controllers;
 
+import db.DBCustomer;
 import db.DBHelper;
 import models.Customer;
 import spark.ModelAndView;
@@ -25,9 +26,9 @@ public class CustomerController {
             Customer customer = DBHelper.find(intId, Customer.class);
 
             Map<String, Object> model = new HashMap<>();
-//
-//            String loggedInUser = LoginController.getLoggedInUserName(req, res);
-//            model.put("user", loggedInUser);
+            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            Customer foundCustomer = DBCustomer.findByUsername(loggedInUser, Customer.class);
+            model.put("customer", foundCustomer);
 
             model.put("customer", customer);
             model.put("template", "templates/customer/show.vtl");

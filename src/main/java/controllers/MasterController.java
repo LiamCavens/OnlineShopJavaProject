@@ -1,6 +1,9 @@
 package controllers;
 
+import db.DBCustomer;
+import db.DBHelper;
 import db.Seed;
+import models.Customer;
 import spark.ModelAndView;
 import spark.Request;
 import spark.Response;
@@ -31,7 +34,9 @@ public class MasterController {
             Map<String, Object> model = new HashMap<>();
             model.put("template", "templates/main.vtl");
             String loggedInUser = LoginController.getLoggedInUserName(req, res);
-            model.put("user", loggedInUser);
+            Customer foundCustomer = DBCustomer.findByUsername(loggedInUser, Customer.class);
+            model.put("customer", foundCustomer);
+
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 

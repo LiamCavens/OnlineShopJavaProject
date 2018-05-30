@@ -1,6 +1,8 @@
 package controllers;
 
+import db.DBCustomer;
 import db.DBHelper;
+import models.Customer;
 import models.stock.Clothing;
 import models.stock.Game;
 import spark.ModelAndView;
@@ -25,7 +27,8 @@ public class ClothingController {
             Map<String, Object> model = new HashMap<>();
             List<Clothing> clothes = DBHelper.getAll(Clothing.class);
             String loggedInUser = LoginController.getLoggedInUserName(req, res);
-            model.put("user", loggedInUser);
+            Customer foundCustomer = DBCustomer.findByUsername(loggedInUser, Customer.class);
+            model.put("customer", foundCustomer);
             model.put("clothes", clothes);
             model.put("template", "templates/stock/clothing/index.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
@@ -34,7 +37,8 @@ public class ClothingController {
         get ("/clothing/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             String loggedInUser = LoginController.getLoggedInUserName(req, res);
-            model.put("user", loggedInUser);
+            Customer foundCustomer = DBCustomer.findByUsername(loggedInUser, Customer.class);
+            model.put("customer", foundCustomer);
             model.put("template", "templates/stock/clothing/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
@@ -58,7 +62,8 @@ public class ClothingController {
             Clothing clothing = DBHelper.find(intId, Clothing.class);
             Map<String, Object> model = new HashMap<>();
             String loggedInUser = LoginController.getLoggedInUserName(req, res);
-            model.put("user", loggedInUser);
+            Customer foundCustomer = DBCustomer.findByUsername(loggedInUser, Customer.class);
+            model.put("customer", foundCustomer);
             model.put("clothing", clothing);
             model.put("template", "templates/stock/clothing/show.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
